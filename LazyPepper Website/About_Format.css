@@ -1,0 +1,91 @@
+/* Updated styles for the brown header */
+.brown-header {
+    background-color: #8B4513;
+    /* Brown color code */
+    color: #000;
+    /* Black text color */
+    padding: 20px 0;
+    /* Adjust top and bottom padding as needed */
+    margin: 0;
+    /* Remove any default margins */
+    width: 100%;
+    /* Make it stretch the entire width */
+    text-align: center;
+    /* Center the text horizontally */
+    position: fixed;
+    /* Fixed position to stick to the top */
+    top: 0;
+    /* Stick to the top of the viewport */
+    left: 0;
+    z-index: 1000;
+    /* Ensure it's above other content */
+}
+
+/* Updated styles for the header text */
+.header-text {
+    font-size: 24px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Make the text bold if desired */
+}
+
+/* Style for the header logo image */
+.header-logo {
+    max-width: 240px;
+    /* Adjust the width of the image */
+    height: auto;
+    /* Maintain the aspect ratio */
+    position: absolute;
+    /* Absolute positioning for proper placement */
+    top: 0px;
+    /* Adjust the top position as needed */
+    left: 0px;
+    /* Adjust the left position as needed */
+}
+
+
+
+/* Updated styles for the red column */
+.red-column {
+    background-color: #FF0000;
+    /* Red color code */
+    color: #000;
+    /* Black text color */
+    width: auto;
+    /* Adjusted to fit the content */
+    padding: 20px;
+    /* Adjust padding as needed */
+    position: fixed;
+    /* Fixed position to make it extend to the bottom */
+    top: 90px;
+    /* Adjust to match the height of the brown bar */
+    bottom: 0;
+    left: 0;
+}
+
+
+/* Style the list items */
+.red-column ul {
+    list-style: none;
+    /* Remove bullet points */
+    padding: 0;
+}
+
+.red-column li {
+    margin-bottom: 10px;
+    /* Adjust spacing between list items */
+}
+
+/* Style the links */
+.red-column a {
+    text-decoration: none;
+    /* Remove underlines */
+    display: block;
+    /* Make the links block-level for spacing */
+    font-size: 18px;
+    /* Adjust the font size as needed */
+    font-weight: bold;
+    /* Make the text bold if desired */
+    color: #000;
+    /* Set the text color to black */
+}
