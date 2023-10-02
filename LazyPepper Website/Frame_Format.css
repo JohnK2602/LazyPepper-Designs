@@ -86,4 +86,6 @@
     /* Adjust the font size as needed */
     font-weight: bold;
     /* Make the text bold if desired */
+    color: #000;
+    /* Set the text color to black */
 }

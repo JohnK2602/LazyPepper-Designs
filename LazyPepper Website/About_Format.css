@@ -87,3 +87,81 @@
     font-weight: bold;
     /* Make the text bold if desired */
 }
+
+/* Styles for the content container */
+.main-container {
+    margin-top: 100px;
+    /* Ensure content starts below the fixed header and column */
+    padding-left: 220px;
+    /* Adjust to match the width of the red column */
+}
+
+/* Styles for the scrollable content */
+.content {
+    /* Add your content styles here */
+    padding: 20px;
+    /* Add padding or other styles as needed */
+}
+
+/* Styles for the image container */
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Styles for the image-and-text container */
+.image-and-text {
+    display: flex;
+    flex-direction: column;
+    /* Stack child elements vertically */
+}
+
+/* Styles for individual images */
+.image-container img {
+    max-width: 45%;
+    height: auto;
+}
+
+.image-logos {
+    display: flex;
+    justify-content: center;
+    /* Center its children horizontally */
+    align-items: center;
+    /* Center its children vertically */
+}
+
+/* Styles for the last two images */
+.image-logos img {
+    max-width: 15%;
+    height: auto;
+    margin-right: 30px;
+    margin-top: 10px;
+    /* Add right margin to create spacing between images */
+}
+
+/* Styles for the text box */
+.text-box {
+    max-width: 100%;
+    /* Adjust the width of the text box */
+    padding: 20px;
+    /* Add padding or other styles as needed */
+    background-color: #f0f0f0;
+    /* Background color for the text box */
+    border: 1px solid #ccc;
+    /* Border for the text box */
+}
+
+.text-box h2 {
+    font-size: 18px;
+    /* Adjust the font size for the title */
+    margin-bottom: 10px;
+    /* Adjust spacing as needed */
+}
+
+.text-box p {
+    font-size: 16px;
+    /* Adjust the font size for the text content */
+    margin: 0;
+    /* Remove any default margins */
+}
