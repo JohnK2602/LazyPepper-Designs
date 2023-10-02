@@ -19,14 +19,18 @@
     left: 0;
     z-index: 1000;
     /* Ensure it's above other content */
+    height: 61px;
+    /* Changes the height of the bar */
 }
 
-/* Updated styles for the header text */
-.header-text {
-    font-size: 24px;
-    /* Adjust the font size as needed */
-    font-weight: bold;
-    /* Make the text bold if desired */
+/* Styles for the "LazyPepper Designs" text */
+.brown-bar h1 {
+    font-size: 40px;
+    /* Adjust the font size as desired */
+    color: black;
+    /* Text color */
+    margin: 0;
+    /* Remove default margins */
 }
 
 /* Style for the header logo image */
@@ -92,7 +96,7 @@
 .main-container {
     margin-top: 100px;
     /* Ensure content starts below the fixed header and column */
-    padding-left: 220px;
+    padding-left: 150px;
     /* Adjust to match the width of the red column */
 }
 
@@ -119,7 +123,7 @@
 
 /* Styles for individual images */
 .image-container img {
-    max-width: 45%;
+    max-width: 100%;
     height: auto;
 }
 
