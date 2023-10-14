@@ -8,3 +8,13 @@ $(document).ready(function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const clickableImages = document.querySelectorAll(".clickable-image");
+
+    clickableImages.forEach(function (image) {
+        image.addEventListener("click", function () {
+            const link = image.getAttribute("data-href");
+            window.location.href = link;
+        })
+    })
+})
