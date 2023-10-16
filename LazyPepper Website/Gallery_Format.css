@@ -47,8 +47,6 @@
     /* Adjust the left position as needed */
 }
 
-
-
 /* Updated styles for the red column */
 .red-column {
     background-color: #FF0000;
@@ -90,4 +88,58 @@
     /* Adjust the font size as needed */
     font-weight: bold;
     /* Make the text bold if desired */
+}
+
+/* Styles for the content container */
+.main-container {
+    margin-top: 100px;
+    /* Ensure content starts below the fixed header and column */
+    padding-left: 150px;
+    /* Adjust to match the width of the red column */
+}
+
+/* Styles for the scrollable content */
+.content {
+    /* Add your content styles here */
+    padding: 20px;
+    /* Add padding or other styles as needed */
+}
+
+/* Styles for the image container */
+.image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+}
+
+/* Styles for individual images */
+.image-container img {
+    max-width: 40%;
+    height: auto;
+}
+
+/* Styles for the text box */
+.text-box {
+    max-width: 100%;
+    /* Adjust the width of the text box */
+    padding: 20px;
+    /* Add padding or other styles as needed */
+    background-color: #f0f0f0;
+    /* Background color for the text box */
+    border: 1px solid #ccc;
+    /* Border for the text box */
+}
+
+.text-box h2 {
+    font-size: 18px;
+    /* Adjust the font size for the title */
+    margin-bottom: 10px;
+    /* Adjust spacing as needed */
+}
+
+.text-box p {
+    font-size: 16px;
+    /* Adjust the font size for the text content */
+    margin: 0;
+    /* Remove any default margins */
 }
