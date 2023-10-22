@@ -1,45 +1,10 @@
-/* Updated styles for the brown header */
-.brown-header {
-    background-color: #8B4513;
-    /* Brown color code */
-    color: #000;
-    /* Black text color */
-    padding: 20px 0;
-    /* Adjust top and bottom padding as needed */
-    margin: 0;
-    /* Remove any default margins */
-    width: 100%;
-    /* Make it stretch the entire width */
-    text-align: center;
-    /* Center the text horizontally */
-    position: fixed;
-    /* Fixed position to stick to the top */
-    top: 0;
-    /* Stick to the top of the viewport */
-    left: 0;
-    z-index: 1000;
-    /* Ensure it's above other content */
-    height: 61px;
-    /* Changes the height of the bar */
-}
-
-/* Styles for the "LazyPepper Designs" text */
-.brown-bar h1 {
-    font-size: 40px;
-    /* Adjust the font size as desired */
-    color: black;
-    /* Text color */
-    margin: 0;
-    /* Remove default margins */
-}
-
 /* Style for the header logo image */
 .header-logo {
-    max-width: 240px;
+    max-width: 220px;
     /* Adjust the width of the image */
     height: auto;
     /* Maintain the aspect ratio */
-    position: absolute;
+    position: fixed;
     /* Absolute positioning for proper placement */
     top: 0px;
     /* Adjust the top position as needed */
@@ -47,47 +12,48 @@
     /* Adjust the left position as needed */
 }
 
-
-
 /* Updated styles for the red column */
 .red-column {
-    background-color: #FF0000;
-    /* Red color code */
-    color: #000;
-    /* Black text color */
-    width: auto;
-    /* Adjusted to fit the content */
-    padding: 20px;
-    /* Adjust padding as needed */
+    font-family: Arial, Helvetica, sans-serif;
+    width: 190px;
+    background-color: white;
+    padding: 15px;
     position: fixed;
-    /* Fixed position to make it extend to the bottom */
-    top: 90px;
-    /* Adjust to match the height of the brown bar */
+    top: 115px;
     bottom: 0;
     left: 0;
 }
 
-
-/* Style the list items */
-.red-column ul {
-    list-style: none;
-    /* Remove bullet points */
-    padding: 0;
-}
-
-.red-column li {
-    margin-bottom: 10px;
-    /* Adjust spacing between list items */
-}
-
 /* Style the links */
 .red-column a {
-    text-decoration: none;
-    /* Remove underlines */
     display: block;
-    /* Make the links block-level for spacing */
-    font-size: 18px;
-    /* Adjust the font size as needed */
-    font-weight: bold;
-    /* Make the text bold if desired */
+    padding: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: red;
+    /* Change if you use a different red*/
+    border: 2px solid red;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.red-column a.active {
+    background-color: red;
+    color: white;
+}
+
+/* Styles for the content container */
+.main-container {
+    margin-top: 10px;
+    /* Ensure content starts below the fixed header and column */
+    padding-left: 200px;
+    /* Adjust to match the width of the red column */
+}
+
+/* Styles for the scrollable content */
+.content {
+    /* Add your content styles here */
+    padding: 20px;
+    /* Add padding or other styles as needed */
 }
