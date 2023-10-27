@@ -49,6 +49,11 @@
     /* Ensure content starts below the fixed header and column */
     padding-left: 200px;
     /* Adjust to match the width of the red column */
+    background-color: #f0f0f0;
+    /* Background color for the text box */
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    /* Border for the text box #acacac */
 }
 
 /* Styles for the scrollable content */
@@ -58,17 +63,21 @@
     /* Add padding or other styles as needed */
 }
 
+
 /* Styles for the image container */
 .image-container {
     display: flex;
     justify-content: flex-start;
     align-items: left;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid rgba(255, 255, 0, 0.696);
 }
 
 /* Styles for individual images */
 .image-container img {
     max-width: 40%;
-    height: auto;
+    max-height: 300px;
 }
 
 /* Styles for the text box */

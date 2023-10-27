@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const contactButton = document.getElementById("contactButton");
     const galleryButton = document.getElementById("galleryButton");
 
+    const hamburgerButton = document.getElementById("hamburger-button");
+    const menu = document.getElementById("menu");
+
+    hamburgerButton.addEventListener("click", function () {
+        if (menu.style.display === "block") {
+            menu.style.display = "none";
+        } else {
+            menu.style.display = "block";
+        }
+    });
 
     // Add click event listeners to the buttons
     aboutButton.addEventListener("click", function () {
@@ -19,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Change the URL to the Charcuterie page when the Charcuterie button is clicked
         window.location.href = "Gallery_Page.html"; // Replace with your desired URL
     });
+
+    // Add the rest of the button functions when those pages are finished
 
 });
 

@@ -43,6 +43,27 @@
     color: white;
 }
 
+/* Style the hamburger button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style the hamburger lines (you can use CSS pseudo-elements) */
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    /* Adjust the color as needed */
+    margin: 6px 0;
+}
+
+/* Hide the menu by default */
+#menu {
+    display: none;
+}
+
 /* Styles for the content container */
 .main-container {
     margin-top: 10px;
