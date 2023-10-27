@@ -48,6 +48,7 @@
     background: none;
     border: none;
     cursor: pointer;
+    top: 0px;
 }
 
 /* Style the hamburger lines (you can use CSS pseudo-elements) */
@@ -61,7 +62,7 @@
 
 /* Hide the menu by default */
 #menu {
-    display: none;
+    display: block;
 }
 
 /* Styles for the content container */

@@ -11,11 +11,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const hamburgerButton = document.getElementById("hamburger-button");
     const menu = document.getElementById("menu");
 
+    const fullMenu = document.getElementById("fullMenu")
+    const ogMenuLoc = fullMenu.style.top
+    const ogMenuWidth = fullMenu.style.width
+
+    const mainContainer = document.getElementById("mainContainer");
+    const ogMainContainerPadding = mainContainer.style.paddingLeft
+
     hamburgerButton.addEventListener("click", function () {
         if (menu.style.display === "block") {
             menu.style.display = "none";
+            fullMenu.style.top = 0;
+            fullMenu.style.width = fullMenu.style.padding;
+            mainContainer.style.paddingLeft = mainContainer.style.marginTop;
+
         } else {
             menu.style.display = "block";
+            fullMenu.style.top = ogMenuLoc;
+            fullMenu.style.width = ogMenuWidth;
+            mainContainer.style.paddingLeft = ogMainContainerPadding
         }
     });
 
