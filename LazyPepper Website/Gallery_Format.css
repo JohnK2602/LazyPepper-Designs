@@ -43,6 +43,28 @@
     color: white;
 }
 
+/* Style the hamburger button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 0px;
+}
+
+/* Style the hamburger lines (you can use CSS pseudo-elements) */
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    /* Adjust the color as needed */
+    margin: 6px 0;
+}
+
+/* Hide the menu by default */
+#menu {
+    display: block;
+}
+
 /* Styles for the content container */
 .main-container {
     margin-top: 10px;
@@ -71,7 +93,7 @@
     align-items: left;
     padding-top: 5px;
     padding-bottom: 5px;
-    border-bottom: 2px solid rgba(255, 255, 0, 0.696);
+    border-bottom: 2px solid brown;
 }
 
 /* Styles for individual images */
@@ -86,10 +108,6 @@
     /* Adjust the width of the text box */
     padding: 20px;
     /* Add padding or other styles as needed */
-    background-color: #f0f0f0;
-    /* Background color for the text box */
-    border: 1px solid #ccc;
-    /* Border for the text box */
 }
 
 .text-box h2 {
@@ -104,4 +122,121 @@
     /* Adjust the font size for the text content */
     margin: 0;
     /* Remove any default margins */
+}
+
+/*****************************
+*   CSS FOR MOBILE SCREEN    *
+*****************************/
+
+/* responsive, form small screens, use 13px font size */
+@media (max-width: 760px) {
+
+    /* Style for the header logo image */
+    .header-logo {
+        max-width: 100px;
+        /* Adjust the width of the image */
+        height: auto;
+        /* Maintain the aspect ratio */
+        position: fixed;
+        /* Absolute positioning for proper placement */
+        top: 0px;
+        /* Adjust the top position as needed */
+        left: 0px;
+        /* Adjust the left position as needed */
+    }
+
+    /* Updated styles for the red column */
+    .red-column {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 96%;
+        background-color: white;
+        padding: 7px;
+        position: fixed;
+        top: 75px;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* Style the links */
+    .red-column a {
+        display: block;
+        padding: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+        color: red;
+        /* Change if you use a different red*/
+        border: 1px solid red;
+        margin: 5px 0;
+        text-align: center;
+        border-radius: 2px;
+    }
+
+    .red-column a.active {
+        background-color: red;
+        color: white;
+    }
+
+    /* Styles for the content container */
+    .main-container {
+        margin-top: 5px;
+        /* Ensure content starts below the fixed header and column */
+        padding-left: 100px;
+        /* Adjust to match the width of the red column */
+        background-color: #f0f0f0;
+        /* Background color for the text box */
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
+        /* Border for the text box #acacac */
+    }
+
+    /* Styles for the scrollable content */
+    .content {
+        /* Add your content styles here */
+        padding: 10px;
+        /* Add padding or other styles as needed */
+    }
+
+
+    /* Styles for the image container */
+    .image-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: left;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid brown;
+    }
+
+    /* Styles for individual images */
+    .image-container img {
+        max-width: 40%;
+        max-height: 300px;
+    }
+
+    /* Styles for the text box */
+    .text-box {
+        max-width: 100%;
+        /* Adjust the width of the text box */
+        padding: 20px;
+        /* Add padding or other styles as needed */
+        background-color: #f0f0f0;
+        /* Background color for the text box */
+        border: 1px solid #ccc;
+        /* Border for the text box */
+    }
+
+    .text-box h2 {
+        font-size: 9px;
+        /* Adjust the font size for the title */
+        margin-bottom: 5px;
+        /* Adjust spacing as needed */
+    }
+
+    .text-box p {
+        font-size: 8px;
+        /* Adjust the font size for the text content */
+        margin: 0;
+        /* Remove any default margins */
+    }
+
 }

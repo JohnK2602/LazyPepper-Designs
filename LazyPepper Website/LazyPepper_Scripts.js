@@ -12,25 +12,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const menu = document.getElementById("menu");
 
     const fullMenu = document.getElementById("fullMenu")
-    const ogMenuLoc = fullMenu.style.top
-    const ogMenuWidth = fullMenu.style.width
+    const ogMenuLoc = fullMenu.style.top;
+    const ogMenuWidth = fullMenu.style.width;
 
     const mainContainer = document.getElementById("mainContainer");
-    const ogMainContainerPadding = mainContainer.style.paddingLeft
+    const ogMainContainerPadding = mainContainer.style.paddingLeft;
 
     hamburgerButton.addEventListener("click", function () {
         if (menu.style.display === "block") {
             menu.style.display = "none";
             fullMenu.style.top = 0;
-            fullMenu.style.width = fullMenu.style.padding;
-            mainContainer.style.paddingLeft = mainContainer.style.marginTop;
+            fullMenu.style.width = "25px"; // "25px" "2%"
+            mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
 
         } else {
             menu.style.display = "block";
             fullMenu.style.top = ogMenuLoc;
             fullMenu.style.width = ogMenuWidth;
-            mainContainer.style.paddingLeft = ogMainContainerPadding
+            mainContainer.style.paddingLeft = ogMainContainerPadding;
         }
+
     });
 
     // Add click event listeners to the buttons
