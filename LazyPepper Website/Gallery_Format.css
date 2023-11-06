@@ -149,10 +149,11 @@
     .red-column {
         font-family: Arial, Helvetica, sans-serif;
         width: 96%;
+        height: 35%;
         background-color: white;
         padding: 7px;
         position: fixed;
-        top: 75px;
+        top: 50px;
         bottom: 0;
         left: 0;
     }
@@ -178,9 +179,9 @@
 
     /* Styles for the content container */
     .main-container {
-        margin-top: 5px;
+        margin-top: 100%;
         /* Ensure content starts below the fixed header and column */
-        padding-left: 100px;
+        padding-left: 5px;
         /* Adjust to match the width of the red column */
         background-color: #f0f0f0;
         /* Background color for the text box */
@@ -219,10 +220,6 @@
         /* Adjust the width of the text box */
         padding: 20px;
         /* Add padding or other styles as needed */
-        background-color: #f0f0f0;
-        /* Background color for the text box */
-        border: 1px solid #ccc;
-        /* Border for the text box */
     }
 
     .text-box h2 {

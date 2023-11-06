@@ -227,7 +227,7 @@
     .main-container {
         margin-top: 100%;
         /* Ensure content starts below the fixed header and column */
-        padding-left: 100px;
+        padding-left: 5px;
         /* Adjust to match the width of the red column */
         background-color: #f0f0f0;
         /* Background color for the text box */
