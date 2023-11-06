@@ -14,22 +14,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const fullMenu = document.getElementById("fullMenu")
     const ogMenuLoc = fullMenu.style.top;
     const ogMenuWidth = fullMenu.style.width;
+    const ogMenuHeight = fullMenu.style.height;
 
     const mainContainer = document.getElementById("mainContainer");
     const ogMainContainerPadding = mainContainer.style.paddingLeft;
 
     hamburgerButton.addEventListener("click", function () {
-        if (menu.style.display === "block") {
-            menu.style.display = "none";
-            fullMenu.style.top = 0;
-            fullMenu.style.width = "25px"; // "25px" "2%"
-            mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
+        if (window.innerWidth <= 760) {
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+                fullMenu.style.top = "0px";
+                fullMenu.style.width = "40px"; // "25px" "2%"
+                fullMenu.style.height = "25px";
+                mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
+    
+            } else {
+                menu.style.display = "block";
+                fullMenu.style.top = ogMenuLoc;
+                fullMenu.style.width = ogMenuWidth;
+                fullMenu.style.height = ogMenuHeight;
+                mainContainer.style.paddingLeft = ogMainContainerPadding;
+            }
 
+        // For Desktop displays
         } else {
-            menu.style.display = "block";
-            fullMenu.style.top = ogMenuLoc;
-            fullMenu.style.width = ogMenuWidth;
-            mainContainer.style.paddingLeft = ogMainContainerPadding;
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+                fullMenu.style.top = 0;
+                fullMenu.style.width = "25px"; // "25px" "2%"
+                mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
+    
+            } else {
+                menu.style.display = "block";
+                fullMenu.style.top = ogMenuLoc;
+                fullMenu.style.width = ogMenuWidth;
+                mainContainer.style.paddingLeft = ogMainContainerPadding;
+            }
+
         }
 
     });
