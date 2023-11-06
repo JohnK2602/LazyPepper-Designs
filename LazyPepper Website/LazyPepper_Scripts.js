@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const mainContainer = document.getElementById("mainContainer");
     const ogMainContainerPadding = mainContainer.style.paddingLeft;
+    const ogMainContainerMarginTop = mainContainer.style.marginTop;
 
     hamburgerButton.addEventListener("click", function () {
         if (window.innerWidth <= 760) {
@@ -27,23 +28,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 fullMenu.style.width = "40px"; // "25px" "2%"
                 fullMenu.style.height = "25px";
                 mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
-    
+                mainContainer.style.marginTop = "5px";
+
             } else {
                 menu.style.display = "block";
                 fullMenu.style.top = ogMenuLoc;
                 fullMenu.style.width = ogMenuWidth;
                 fullMenu.style.height = ogMenuHeight;
                 mainContainer.style.paddingLeft = ogMainContainerPadding;
+                mainContainer.style.marginTop = ogMainContainerMarginTop;
             }
 
-        // For Desktop displays
+            // For Desktop displays
         } else {
             if (menu.style.display === "block") {
                 menu.style.display = "none";
                 fullMenu.style.top = 0;
                 fullMenu.style.width = "25px"; // "25px" "2%"
                 mainContainer.style.paddingLeft = "40px"; // "40px" "4%"
-    
+
             } else {
                 menu.style.display = "block";
                 fullMenu.style.top = ogMenuLoc;
