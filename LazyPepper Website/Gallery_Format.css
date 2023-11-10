@@ -137,7 +137,7 @@
         /* Adjust the width of the image */
         height: auto;
         /* Maintain the aspect ratio */
-        position: fixed;
+        position: static;
         /* Absolute positioning for proper placement */
         top: 0px;
         /* Adjust the top position as needed */
@@ -149,11 +149,9 @@
     .red-column {
         font-family: Arial, Helvetica, sans-serif;
         width: 96%;
-        height: 35%;
         background-color: white;
         padding: 7px;
-        position: fixed;
-        top: 50px;
+        position: static;
         bottom: 0;
         left: 0;
     }
@@ -179,7 +177,7 @@
 
     /* Styles for the content container */
     .main-container {
-        margin-top: 100%;
+        /*margin-top: 100%;
         /* Ensure content starts below the fixed header and column */
         padding-left: 5px;
         /* Adjust to match the width of the red column */

@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
-    <link rel="stylesheet" href="Frame_Format.css">
+    <link rel="stylesheet" href="About_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
 </head>
 
 <body>
-    <div class="main-container" id="mainContainer">
-        <nav class="red-column" id="fullMenu">
+
+    <div class="red-column" id="fullMenu">
+        <div id="inner-nav">
+            <header id="header-logo" class="header-logo">
+                <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
+            </header>
             <button id="hamburger-button" class="hamburger">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
@@ -20,9 +24,6 @@
             </button>
 
             <div id="menu">
-                <header class="header-logo">
-                    <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
-                </header>
 
                 <!-- Change class="" to the currentlly opened page-->
                 <a href="#" id="aboutButton" class="active">About</a>
@@ -33,9 +34,13 @@
                 <a href="#" id="contactButton">Contact</a>
                 <a href="#" id="galleryButton">Gallery</a>
             </div>
-        </nav>
+        </div>
+    </div>
 
-        <div class="content">
+    <div class="main-container" id="mainContainer">
+
+
+        <div class="content" id="pageContent">
             <!-- Put all other information Here!!! -->
         </div>
     </div>

@@ -11,8 +11,12 @@
 </head>
 
 <body>
-    <div class="main-container" id="mainContainer">
-        <nav class="red-column" id="fullMenu">
+
+    <div class="red-column" id="fullMenu">
+        <div id="inner-nav">
+            <header id="header-logo" class="header-logo">
+                <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
+            </header>
             <button id="hamburger-button" class="hamburger">
                 <div class="hamburger-line"></div>
                 <div class="hamburger-line"></div>
@@ -20,9 +24,6 @@
             </button>
 
             <div id="menu">
-                <header class="header-logo">
-                    <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
-                </header>
 
                 <!-- Change class="" to the currentlly opened page-->
                 <a href="#" id="aboutButton">About</a>
@@ -33,9 +34,13 @@
                 <a href="#" id="contactButton">Contact</a>
                 <a href="#" id="galleryButton" class="active">Gallery</a>
             </div>
-        </nav>
+        </div>
+    </div>
 
-        <div class="content">
+    <div class="main-container" id="mainContainer">
+
+
+        <div class="content" id="pageContent">
             <div class="image-container">
                 <img src="About_Page_Banner.jpg" alt="Image 1" id="image1">
                 <div class="text-box">
