@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyPepper Designs</title>
+    <link rel="stylesheet" href="Contact_Format.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="LazyPepper_Scripts.js"></script>
+</head>
+
+<body>
+
+    <div class="red-column" id="fullMenu">
+        <div id="inner-nav">
+            <header id="header-logo" class="header-logo">
+                <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
+            </header>
+            <button id="hamburger-button" class="hamburger">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+
+            <div id="menu">
+
+                <!-- Change class="" to the currentlly opened page-->
+                <a href="#" id="aboutButton">About</a>
+                <a href="#" id="charcuterieButton">Charcuterie</a>
+                <a href="#" id="cuttingButton">Cutting</a>
+                <a href="#" id="specialtyButton">Specialty</a>
+                <a href="#" id="customButton">Custom</a>
+                <a href="#" id="contactButton" class="active">Contact</a>
+                <a href="#" id="galleryButton">Gallery</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+
+
+        <div class="content" id="pageContent">
+            <!-- Put all other information Here!!! -->
+            <div class="image-container">
+                <img src="Contact_Image_1.jpg" alt="Image 1">
+
+                <div class="image-logos">
+                    <div class="clickable-image"
+                        data-href="https://www.facebook.com/profile.php?id=61552378622970&mibextid=9R9pXO">
+                        <img src="Facebook_Logo.jpg" alt="Facebook logo">
+                    </div>
+                    <div class="clickable-image"
+                        data-href="https://instagram.com/edd4584?igshid=OGQ5ZDc2ODk2ZA%3D%3D&utm_source=qr">
+                        <img src="Instagram_Logo.jpg" alt="Instagram logo">
+                    </div>
+
+                </div>
+
+                <div class="image-logos2">
+                    <div class="clickable-image2" data-href="mailto:lazypepper123@gmail.com">
+                        <img src="Email_Logo.jpg" alt="Email logo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

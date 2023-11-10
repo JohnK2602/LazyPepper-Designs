@@ -74,17 +74,30 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "Gallery_Page.html"; // Replace with your desired URL
     });
 
+    contactButton.addEventListener("click", function () {
+        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
+        window.location.href = "Contact_Page.html"; // Replace with your desired URL
+    });
+
     // Add the rest of the button functions when those pages are finished
 
 });
 
 document.addEventListener("DOMContentLoaded", function () {
     const clickableImages = document.querySelectorAll(".clickable-image");
+    const clickableImages2 = document.querySelectorAll(".clickable-image2");
 
     clickableImages.forEach(function (image) {
         image.addEventListener("click", function () {
             const link = image.getAttribute("data-href");
             window.location.href = link;
-        })
-    })
-})
+        });
+    });
+
+    clickableImages2.forEach(function (image) {
+        image.addEventListener("click", function () {
+            const link = image.getAttribute("data-href");
+            window.location.href = link;
+        });
+    });
+});

@@ -1,0 +1,328 @@
+/* Style for the header logo image */
+.header-logo {
+    max-width: 220px;
+    /* Adjust the width of the image */
+    height: auto;
+    /* Maintain the aspect ratio */
+    position: fixed;
+    /* Absolute positioning for proper placement */
+    top: 0px;
+    /* Adjust the top position as needed */
+    left: 0px;
+    /* Adjust the left position as needed */
+}
+
+/* Updated styles for the red column */
+.red-column {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 190px;
+    background-color: white;
+    padding: 15px;
+    position: fixed;
+    top: 115px;
+    bottom: 0;
+    left: 0;
+}
+
+/* Style the links */
+.red-column a {
+    display: block;
+    padding: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: red;
+    /* Change if you use a different red*/
+    border: 2px solid red;
+    margin: 10px 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.red-column a.active {
+    background-color: red;
+    color: white;
+}
+
+/* Style the hamburger button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    top: 0px;
+}
+
+/* Style the hamburger lines (you can use CSS pseudo-elements) */
+.hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    /* Adjust the color as needed */
+    margin: 6px 0;
+}
+
+/* Hide the menu by default */
+#menu {
+    display: block;
+}
+
+/* Styles for the content container */
+.main-container {
+    margin-top: 10px;
+    /* Ensure content starts below the fixed header and column */
+    padding-left: 200px;
+    /* Adjust to match the width of the red column */
+    background-color: #f0f0f0;
+    /* Background color for the text box */
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    /* Border for the text box #acacac */
+}
+
+/* Styles for the scrollable content */
+.content {
+    /* Add your content styles here */
+    padding: 20px;
+    /* Add padding or other styles as needed */
+}
+
+/* Styles for the image container */
+.image-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/* Styles for individual images */
+.image-container img {
+    max-width: 375px;
+    height: auto;
+}
+
+.image-logos {
+    display: block;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Styles for the last two images */
+.image-logos img {
+    max-width: 200px;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+/* Styles for clickable images */
+.clickable-image {
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    /* Change the cursor to a hand on hover to indicate clickability */
+    transition: opacity 0.3s;
+    /* Add a cmooth transition on hover */
+}
+
+.clickable-image:hover {
+    opacity: 0.7;
+    /* adjust the opacity */
+
+}
+
+.image-logos2 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Styles for the last two images */
+.image-logos2 img {
+    max-width: 200px;
+    height: auto;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding-left: 125px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+}
+
+/* Styles for clickable images */
+.clickable-image2 {
+    max-width: 200px;
+    height: auto;
+    cursor: pointer;
+    /* Change the cursor to a hand on hover to indicate clickability */
+    transition: opacity 0.3s;
+    /* Add a cmooth transition on hover */
+}
+
+.clickable-image2:hover {
+    opacity: 0.7;
+    /* adjust the opacity */
+
+}
+
+/* Other Desktop CSS goes here */
+
+
+
+/*****************************
+*   CSS FOR MOBILE SCREEN    *
+*****************************/
+
+/* responsive, form small screens, use 13px font size */
+@media (max-width: 760px) {
+
+    /* Style for the header logo image */
+    .header-logo {
+        max-width: 100px;
+        /* Adjust the width of the image */
+        height: auto;
+        /* Maintain the aspect ratio */
+        position: static;
+        /* Absolute positioning for proper placement */
+        top: 0px;
+        /* Adjust the top position as needed */
+        left: 0px;
+        /* Adjust the left position as needed */
+    }
+
+    /* Updated styles for the red column */
+    .red-column {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 96%;
+        background-color: white;
+        padding: 7px;
+        position: static;
+        bottom: 0;
+        left: 0;
+    }
+
+    /* Style the links */
+    .red-column a {
+        display: block;
+        padding: 5px;
+        padding-bottom: 5px;
+        text-decoration: none;
+        color: red;
+        /* Change if you use a different red*/
+        border: 1px solid red;
+        margin: 5px 0;
+        text-align: center;
+        border-radius: 2px;
+    }
+
+    .red-column a.active {
+        background-color: red;
+        color: white;
+    }
+
+    /* Styles for the content container */
+    .main-container {
+        /*margin-top: 100%;
+        /* Ensure content starts below the fixed header and column */
+        padding-left: 5px;
+        /* Adjust to match the width of the red column */
+        background-color: #f0f0f0;
+        /* Background color for the text box */
+        border-top: 1px solid red;
+        border-bottom: 1px solid red;
+        /* Border for the text box #acacac */
+    }
+
+    /* Styles for the scrollable content */
+    .content {
+        /* Add your content styles here */
+        padding: 10px;
+        /* Add padding or other styles as needed */
+    }
+
+    /* Styles for the image container */
+    .image-container {
+        display: block;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    /* Styles for individual images */
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .image-logos {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    /* Styles for the last two images */
+    .image-logos img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 5px;
+        margin-top: 5px;
+        padding-left: 30px;
+        padding-right: 50px;
+        padding-bottom: 20px;
+    }
+
+    /* Styles for clickable images */
+    .clickable-image {
+        max-width: 200px;
+        height: auto;
+        cursor: pointer;
+        /* Change the cursor to a hand on hover to indicate clickability */
+        transition: opacity 0.3s;
+        /* Add a cmooth transition on hover */
+    }
+
+    .clickable-image:hover {
+        opacity: 0.7;
+        /* adjust the opacity */
+
+    }
+
+    .image-logos2 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    /* Styles for the last two images */
+    .image-logos2 img {
+        max-width: 100px;
+        height: auto;
+        margin-right: 5px;
+        margin-top: 5px;
+        padding-left: 125px;
+        padding-right: 50px;
+        padding-bottom: 20px;
+    }
+
+    /* Styles for clickable images */
+    .clickable-image2 {
+        max-width: 200px;
+        height: auto;
+        cursor: pointer;
+        /* Change the cursor to a hand on hover to indicate clickability */
+        transition: opacity 0.3s;
+        /* Add a cmooth transition on hover */
+    }
+
+    .clickable-image2:hover {
+        opacity: 0.7;
+        /* adjust the opacity */
+
+    }
+
+
+    /* Rest of Mobile CSS goes here */
+
+}
