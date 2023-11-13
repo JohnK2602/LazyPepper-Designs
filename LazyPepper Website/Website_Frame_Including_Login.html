@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LazyPepper Designs</title>
+    <link rel="stylesheet" href="Frame_Format.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="LazyPepper_Scripts.js"></script>
+</head>
+
+<body>
+    <header class="header-logo">
+        <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
+    </header>
+
+    <div class="main-container">
+        <nav class="red-column">
+            <!-- Change class="" to the currentlly opened page-->
+            <a href="#" id="aboutButton" class="active">About</a>
+            <a href="#" id="charcuterieButton">Charcuterie</a>
+            <a href="#" id="cuttingButton">Cutting</a>
+            <a href="#" id="specialtyButton">Specialty</a>
+            <a href="#" id="customButton">Custom</a>
+            <a href="#" id="contactButton">Contact</a>
+            <a href="#" id="galleryButton">Gallery</a>
+        </nav>
+
+        <div class="content">
+            <!-- Put all other information Here!!! -->
+        </div>
+    </div>
+    <div class="popup-container">
+        <h1>Popup Login</h1>
+        <a href="#" class="button" id="button">Login</a>
+    </div>
+    <div class="popup">
+        <div class="popup-content">
+            <img src="owner.png" alt="User">
+            
+            <input type="username" placeholder="JohnDoe123">
+            <input type="password" placeholder="ILYHTML200">
+            <a href="#" class="button" id="cancel">Cancel</a>
+            <a href="" class="button" id="login">Login</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("button").addEventListener("click", function() {
+            document.querySelector(".popup").style.display = "flex";
+        })
+        document.getElementById("cancel").addEventListener("click", function() {
+            document.querySelector(".popup").style.display = "none";
+        })
+    </script>
+</body>
+
+</html>
