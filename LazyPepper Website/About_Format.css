@@ -122,17 +122,19 @@
 
 /* Styles for the last two images */
 .image-logos img {
-    max-width: 25%;
+    max-width: none;
     height: auto;
     margin-right: 10px;
     margin-top: 10px;
+    width: 96px;
 }
 
 /* Styles for clickable images */
 .clickable-image {
-    max-width: 50%;
+    max-width: none;
     height: auto;
     cursor: pointer;
+    margin-right: 10px;
     /* Change the cursor to a hand on hover to indicate clickability */
     transition: opacity 0.3s;
     /* Add a cmooth transition on hover */
@@ -278,17 +280,19 @@
 
     /* Styles for the last two images */
     .image-logos img {
-        max-width: 25%;
+        max-width: none;
         height: auto;
         margin-right: 5px;
         margin-top: 5px;
+        width: 48px;
     }
 
     /* Styles for clickable images */
     .clickable-image {
-        max-width: 50%;
+        max-width: none;
         height: auto;
         cursor: pointer;
+        margin-right: 10px;
         /* Change the cursor to a hand on hover to indicate clickability */
         transition: opacity 0.3s;
         /* Add a cmooth transition on hover */
