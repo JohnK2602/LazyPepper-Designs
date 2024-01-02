@@ -79,6 +79,11 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "Contact_Page.html"; // Replace with your desired URL
     });
 
+    cuttingButton.addEventListener("click", function () {
+        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
+        window.location.href = "Cutting_Page.php"; // Replace with your desired URL
+    });
+
     // Add the rest of the button functions when those pages are finished
 
 });
