@@ -85,44 +85,58 @@
     /* Add padding or other styles as needed */
 }
 
-
-/* Styles for the image container */
-.image-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: left;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid brown;
+/* Table Format */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
-/* Styles for individual images */
-.image-container img {
-    max-width: 40%;
-    max-height: 300px;
+th,
+td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
 }
 
-/* Styles for the text box */
-.text-box {
-    max-width: 100%;
-    /* Adjust the width of the text box */
-    padding: 20px;
-    /* Add padding or other styles as needed */
+th {
+    background-color: #f2f2f2;
 }
 
-.text-box h2 {
-    font-size: 18px;
-    /* Adjust the font size for the title */
-    margin-bottom: 10px;
-    /* Adjust spacing as needed */
+.animal-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }
 
-.text-box p {
-    font-size: 16px;
-    /* Adjust the font size for the text content */
-    margin: 0;
-    /* Remove any default margins */
+.animal-link:hover {
+    text-decoration: underline;
 }
+
+.edit-btn {
+    background-color: #f2f2f2;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: black;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    /* Add line-height to center text vertically */
+    line-height: 26px;
+    /* Adjust the value according to the button height */
+}
+
+.edit-btn:hover {
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+/* Other Desktop CSS goes here */
+
+
 
 /*****************************
 *   CSS FOR MOBILE SCREEN    *
@@ -196,42 +210,6 @@
     }
 
 
-    /* Styles for the image container */
-    .image-container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: left;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        border-bottom: 2px solid brown;
-    }
-
-    /* Styles for individual images */
-    .image-container img {
-        max-width: 40%;
-        max-height: 300px;
-    }
-
-    /* Styles for the text box */
-    .text-box {
-        max-width: 100%;
-        /* Adjust the width of the text box */
-        padding: 20px;
-        /* Add padding or other styles as needed */
-    }
-
-    .text-box h2 {
-        font-size: 9px;
-        /* Adjust the font size for the title */
-        margin-bottom: 5px;
-        /* Adjust spacing as needed */
-    }
-
-    .text-box p {
-        font-size: 8px;
-        /* Adjust the font size for the text content */
-        margin: 0;
-        /* Remove any default margins */
-    }
+    /* Rest of Mobile CSS goes here */
 
 }

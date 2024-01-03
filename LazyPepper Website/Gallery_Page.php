@@ -7,9 +7,9 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price
+$sql = "SELECT inventory.item_img, inventory.gallery_desc
             FROM inventory
-            WHERE inventory.item_type = 'cutting'";
+            WHERE inventory.gallery_item = 1";
 
 // Execute the SQL query and store the results
 $results = mysqli_query($dbconnection, $sql);
@@ -27,7 +27,7 @@ if (!$results) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
-    <link rel="stylesheet" href="Cutting_Format.css">
+    <link rel="stylesheet" href="Gallery_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
 </head>
@@ -50,11 +50,11 @@ if (!$results) {
                 <!-- Change class="" to the currentlly opened page-->
                 <a href="#" id="aboutButton">About</a>
                 <a href="#" id="charcuterieButton">Charcuterie</a>
-                <a href="#" id="cuttingButton" class="active">Cutting</a>
+                <a href="#" id="cuttingButton">Cutting</a>
                 <a href="#" id="specialtyButton">Specialty</a>
                 <a href="#" id="customButton">Custom</a>
                 <a href="#" id="contactButton">Contact</a>
-                <a href="#" id="galleryButton">Gallery</a>
+                <a href="#" id="galleryButton" class="active">Gallery</a>
             </div>
         </div>
     </div>
@@ -62,15 +62,12 @@ if (!$results) {
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
             <table>
-                <thead>
+                <!--<thead>
                     <tr>
                         <th>Image</th>
-                        <th>Length</th>
-                        <th>Width</th>
-                        <th>Wood Type</th>
-                        <th>Price</th>
+                        <th>Description</th>
                     </tr>
-                </thead>
+                </thead>-->
                 <tbody>
                     <?php while ($row = mysqli_fetch_assoc($results)) { 
                         $imageName = $row['item_img']; ?>
@@ -79,16 +76,7 @@ if (!$results) {
                                 <?php echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
                             </td>
                             <td>
-                                <?php echo $row['length']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['width']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['wood_type']; ?>
-                            </td>
-                            <td>
-                                <?php echo "$",$row['price']; ?>
+                                <?php echo $row['gallery_desc']; ?>
                             </td>
                         </tr>
                     <?php } ?>

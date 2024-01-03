@@ -9,7 +9,7 @@ include("dbconnection.php");
 // Select data from tables animal and owner
 $sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price
             FROM inventory
-            WHERE inventory.item_type = 'cutting'";
+            WHERE inventory.item_type = 'special'";
 
 // Execute the SQL query and store the results
 $results = mysqli_query($dbconnection, $sql);
@@ -27,7 +27,7 @@ if (!$results) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
-    <link rel="stylesheet" href="Cutting_Format.css">
+    <link rel="stylesheet" href="Specialty_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
 </head>
@@ -50,8 +50,8 @@ if (!$results) {
                 <!-- Change class="" to the currentlly opened page-->
                 <a href="#" id="aboutButton">About</a>
                 <a href="#" id="charcuterieButton">Charcuterie</a>
-                <a href="#" id="cuttingButton" class="active">Cutting</a>
-                <a href="#" id="specialtyButton">Specialty</a>
+                <a href="#" id="cuttingButton">Cutting</a>
+                <a href="#" id="specialtyButton" class="active">Specialty</a>
                 <a href="#" id="customButton">Custom</a>
                 <a href="#" id="contactButton">Contact</a>
                 <a href="#" id="galleryButton">Gallery</a>
@@ -64,7 +64,7 @@ if (!$results) {
             <table>
                 <thead>
                     <tr>
-                        <th>Image</th>
+                        <th></th>
                         <th>Length</th>
                         <th>Width</th>
                         <th>Wood Type</th>
