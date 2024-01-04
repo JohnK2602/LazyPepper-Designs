@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const customButton = document.getElementById("customButton");
     const contactButton = document.getElementById("contactButton");
     const galleryButton = document.getElementById("galleryButton");
+    const buyButton = document.getElementById("buyButton");
     const headerLogo = document.getElementById("header-logo");
 
     const hamburgerButton = document.getElementById("hamburger-button");
@@ -94,9 +95,17 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "Specialty_Page.php"; // Replace with your desired URL
     });
 
+    buyButton.addEventListener("click", function () {
+        //localStorage.clear();
+        sessionStorage.setItem("price", buyButton.title);
+        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
+        window.location.href = buyButton.href; // Replace with your desired URL
+    });
+
     // Add the rest of the button functions when those pages are finished
 
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
     const clickableImages = document.querySelectorAll(".clickable-image");

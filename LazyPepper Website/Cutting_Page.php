@@ -64,7 +64,7 @@ if (!$results) {
             <table>
                 <thead>
                     <tr>
-                        <th>Image</th>
+                        <th></th>
                         <th>Length</th>
                         <th>Width</th>
                         <th>Wood Type</th>
@@ -79,16 +79,16 @@ if (!$results) {
                                 <?php echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
                             </td>
                             <td>
-                                <?php echo $row['length']; ?>
+                                <?php echo $row['length'],"in."; ?>
                             </td>
                             <td>
-                                <?php echo $row['width']; ?>
+                                <?php echo $row['width'],"in."; ?>
                             </td>
                             <td>
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <?php echo "$",$row['price']; ?>
+                                <a class="buy-btn" href="Buy_Page.html" title="<?php echo "$",$row['price']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
                             </td>
                         </tr>
                     <?php } ?>

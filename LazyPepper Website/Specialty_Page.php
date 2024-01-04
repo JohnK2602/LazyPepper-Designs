@@ -7,7 +7,7 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price
+$sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.height, inventory.wood_type, inventory.price
             FROM inventory
             WHERE inventory.item_type = 'special'";
 
@@ -67,6 +67,7 @@ if (!$results) {
                         <th></th>
                         <th>Length</th>
                         <th>Width</th>
+                        <th>Height</th>
                         <th>Wood Type</th>
                         <th>Price</th>
                     </tr>
@@ -79,16 +80,19 @@ if (!$results) {
                                 <?php echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
                             </td>
                             <td>
-                                <?php echo $row['length']; ?>
+                                <?php echo $row['length'],"in."; ?>
                             </td>
                             <td>
-                                <?php echo $row['width']; ?>
+                                <?php echo $row['width'],"in."; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['height'],"in."; ?>
                             </td>
                             <td>
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <?php echo "$",$row['price']; ?>
+                                <a class="buy-btn" href="Buy_Page.html" title="<?php echo "$",$row['price']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
                             </td>
                         </tr>
                     <?php } ?>
