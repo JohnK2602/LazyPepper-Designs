@@ -137,7 +137,7 @@
     margin-right: 10px;
     /* Change the cursor to a hand on hover to indicate clickability */
     transition: opacity 0.3s;
-    /* Add a cmooth transition on hover */
+    /* Add a smooth transition on hover */
 }
 
 .clickable-image:hover {
