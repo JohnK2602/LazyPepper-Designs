@@ -9,7 +9,7 @@ include("dbconnection.php");
 // Select data from tables animal and owner
 $sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.height, inventory.wood_type, inventory.price
             FROM inventory
-            WHERE inventory.item_type = 'special'";
+            WHERE inventory.item_type = 'specialty'";
 
 // Execute the SQL query and store the results
 $results = mysqli_query($dbconnection, $sql);
@@ -48,13 +48,13 @@ if (!$results) {
             <div id="menu">
 
                 <!-- Change class="" to the currentlly opened page-->
-                <a href="#" id="aboutButton">About</a>
-                <a href="#" id="charcuterieButton">Charcuterie</a>
-                <a href="#" id="cuttingButton">Cutting</a>
-                <a href="#" id="specialtyButton" class="active">Specialty</a>
-                <a href="#" id="customButton">Custom</a>
-                <a href="#" id="contactButton">Contact</a>
-                <a href="#" id="galleryButton">Gallery</a>
+                <a href="About_Page.html">About</a>
+                <a href="Charcuterie_Page.php">Charcuterie</a>
+                <a href="Cutting_Page.php">Cutting</a>
+                <a href="Specialty_Page.php" class="active">Specialty</a>
+                <a href="Custom_Page.html">Custom</a>
+                <a href="Contact_Page.html">Contact</a>
+                <a href="Gallery_Page.php">Gallery</a>
             </div>
         </div>
     </div>
@@ -73,11 +73,10 @@ if (!$results) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($row = mysqli_fetch_assoc($results)) { 
-                        $imageName = $row['item_img']; ?>
+                    <?php while ($row = mysqli_fetch_assoc($results)) { ?>
                         <tr>
                             <td>
-                                <?php echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
+                                <?php $imageName = $row['item_img']; echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
                             </td>
                             <td>
                                 <?php echo $row['length'],"in."; ?>
@@ -92,7 +91,7 @@ if (!$results) {
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <a class="buy-btn" href="Buy_Page.html" title="<?php echo "$",$row['price']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
+                                <a class="buy-btn" href="Buy_Page.php" title="<?php echo "$",$row['price']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
                             </td>
                         </tr>
                     <?php } ?>

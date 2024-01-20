@@ -51,10 +51,13 @@ include("dbconnection.php");
                 Gallery Description: <input type="text" name="gallery_desc"><br><br>
                 Gallery Item? <input type="checkbox" name="gallery_item" value="1"><br><br>
                 Image: <input type="text" name="item_img"><br><br>
-                Item Type: <input type="text" name="item_type"><br><br>
-                Height: <input type="number" name="height"><br><br>
-                Length: <input type="number" name="length"><br><br>
-                Width: <input type="number" name="width"><br><br>
+                Item Type: <select name="item_type"> 
+                    <option value="cutting"> Cutting</option>
+                    <option value="charcuterie"> Charcuterie</option>
+                    <option value="specialty"> Specialty</option></select><br><br>
+                Height (inches): <input type="number" name="height"><br><br>
+                Length (inches): <input type="number" name="length"><br><br>
+                Width (inches): <input type="number" name="width"><br><br>
                 Wood: <input type="text" name="wood_type"><br><br>
                 Price: <input type="number" name="price"><br><br>
                 <input type="submit" name="submit">
