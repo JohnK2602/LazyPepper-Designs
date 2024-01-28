@@ -11,12 +11,23 @@
 </head>
 
 <body>
-    <h1>Item Price</h1>
-    <p id="showPrice"></p>
+    <?php
+    // Check if the 'id' parameter is set in the URL
+    if (isset($_GET['id'])) {
+        // Retrieve the selected ID from the URL
+        $selectedId = $_GET['id'];
 
-    <script>
-        document.getElementById("showPrice").innerText = sessionStorage.getItem("price");
-    </script>
+        // Display the selected ID
+        echo '<h1>Details for ID: ' . $selectedId . '</h1>';
+
+        // Perform additional actions based on the selected ID
+        // ...
+
+    } else {
+        // Handle the case where the 'id' parameter is not set
+        echo '<p>No ID selected.</p>';
+    }
+    ?>
 </body>
 
 </html>

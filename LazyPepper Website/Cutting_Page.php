@@ -87,7 +87,10 @@ if (!$results) {
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <a class="buy-btn" href="Buy_Page.php" title="<?php echo $row['item_id']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
+                                <?php echo '<form action="save_item_id.php" method="post">'; 
+                                echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                echo '<button type="submit">Buy</button>'; 
+                                echo '</form>'; ?>
                             </td>
                         </tr>
                     <?php } ?>
