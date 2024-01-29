@@ -7,7 +7,7 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_img, inventory.length, inventory.width, inventory.height, inventory.wood_type, inventory.price
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.length, inventory.width, inventory.height, inventory.wood_type, inventory.price
             FROM inventory
             WHERE inventory.item_type = 'specialty'";
 
@@ -91,7 +91,10 @@ if (!$results) {
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <a class="buy-btn" href="Buy_Page.php" title="<?php echo "$",$row['price']; ?>" id="buyButton"> <?php echo "$",$row['price']; ?> </a>
+                                <?php echo '<form action="save_item_id.php" method="post">'; 
+                                echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                echo '<button type="submit" class="buy-btn">Buy</button>'; 
+                                echo '</form>'; ?>
                             </td>
                         </tr>
                     <?php } ?>

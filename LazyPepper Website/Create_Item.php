@@ -34,10 +34,10 @@ include("dbconnection.php");
             <div id="menu">
 
                 <!-- Change class="" to the currentlly opened page-->
-                <a href="#" id="createItemButton" class="active">Create Item</a>
-                <a href="#" id="delCharcuterieButton">View Charcuterie</a>
-                <a href="#" id="delCuttingButton">View Cutting</a>
-                <a href="#" id="delSpecialtyButton">View Specialty</a>
+                <a href="Create_Item.php" class="active">Create Item</a>
+                <a href="View_Charcuterie.php">View Charcuterie</a>
+                <a href="View_Cutting.php">View Cutting</a>
+                <a href="View_Specialty.php">View Specialty</a>
             </div>
         </div>
     </div>

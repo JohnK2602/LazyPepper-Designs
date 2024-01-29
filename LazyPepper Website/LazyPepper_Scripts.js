@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Page Buttons
     const pageButtons = document.getElementById("menu");
-    const buyButton = document.getElementById("buyButton");
+    const removeButton = document.getElementById("removeButton");
 
     // Formatting Elements (used when converting to mobile view)
     const headerLogo = document.getElementById("header-logo");
@@ -61,6 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
     pageButtons.addEventListener("click", function () {
         // Change the URL to the About page when the About button is clicked
         window.location.href = pageButtons.href; // Replace with your desired URL
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector('table').addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('remove-btn')) {
+                window.location.reload();
+            }
+
+        });
+
     });
 
 });
