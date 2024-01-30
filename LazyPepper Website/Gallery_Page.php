@@ -48,13 +48,13 @@ if (!$results) {
             <div id="menu">
 
                 <!-- Change class="" to the currentlly opened page-->
-                <a href="#" id="aboutButton">About</a>
-                <a href="#" id="charcuterieButton">Charcuterie</a>
-                <a href="#" id="cuttingButton">Cutting</a>
-                <a href="#" id="specialtyButton">Specialty</a>
-                <a href="#" id="customButton">Custom</a>
-                <a href="#" id="contactButton">Contact</a>
-                <a href="#" id="galleryButton" class="active">Gallery</a>
+                <a href="About_Page.html">About</a>
+                <a href="Charcuterie_Page.php">Charcuterie</a>
+                <a href="Cutting_Page.php">Cutting</a>
+                <a href="Specialty_Page.php">Specialty</a>
+                <a href="Custom_Page.html">Custom</a>
+                <a href="Contact_Page.html">Contact</a>
+                <a href="Gallery_Page.php" class="active">Gallery</a>
             </div>
         </div>
     </div>
@@ -69,11 +69,10 @@ if (!$results) {
                     </tr>
                 </thead>-->
                 <tbody>
-                    <?php while ($row = mysqli_fetch_assoc($results)) { 
-                        $imageName = $row['item_img']; ?>
+                    <?php while ($row = mysqli_fetch_assoc($results)) { ?>
                         <tr>
                             <td>
-                                <?php echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
+                                <?php $imageName = $row['item_img']; echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
                             </td>
                             <td>
                                 <?php echo $row['gallery_desc']; ?>

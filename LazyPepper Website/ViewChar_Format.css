@@ -118,8 +118,8 @@ th {
     text-decoration: underline;
 }
 
-.buy-btn {
-    background-color: #0dff00;
+.remove-btn {
+    background-color: #ff0000;
     border: 1px solid #000000;
     border-radius: 4px;
     color: black;
@@ -134,7 +134,7 @@ th {
     /* Adjust the value according to the button height */
 }
 
-.buy-btn:hover {
+.remove-btn:hover {
     background-color: #d3d3d3;
     cursor: pointer;
 }

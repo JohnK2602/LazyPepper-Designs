@@ -1,23 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Get references to the buttons by their unique IDs
-    const aboutButton = document.getElementById("aboutButton");
-    const charcuterieButton = document.getElementById("charcuterieButton");
-    const cuttingButton = document.getElementById("cuttingButton");
-    const specialtyButton = document.getElementById("specialtyButton");
-    const customButton = document.getElementById("customButton");
-    const contactButton = document.getElementById("contactButton");
-    const galleryButton = document.getElementById("galleryButton");
-    const buyButton = document.getElementById("buyButton");
-    const headerLogo = document.getElementById("header-logo");
+    // Page Buttons
+    const pageButtons = document.getElementById("menu");
+    const removeButton = document.getElementById("removeButton");
 
+    // Formatting Elements (used when converting to mobile view)
+    const headerLogo = document.getElementById("header-logo");
     const hamburgerButton = document.getElementById("hamburger-button");
     const menu = document.getElementById("menu");
-
     const fullMenu = document.getElementById("fullMenu")
     const ogMenuLoc = fullMenu.style.top;
     const ogMenuWidth = fullMenu.style.width;
     const ogMenuHeight = fullMenu.style.height;
-
     const mainContainer = document.getElementById("mainContainer");
     const ogMainContainerPadding = mainContainer.style.paddingLeft;
     const ogMainContainerMarginTop = mainContainer.style.marginTop;
@@ -65,47 +58,22 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Add click event listeners to the buttons
-    aboutButton.addEventListener("click", function () {
+    pageButtons.addEventListener("click", function () {
         // Change the URL to the About page when the About button is clicked
-        window.location.href = "About_Page.html"; // Replace with your desired URL
+        window.location.href = pageButtons.href; // Replace with your desired URL
     });
 
-    galleryButton.addEventListener("click", function () {
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = "Gallery_Page.php"; // Replace with your desired URL
-    });
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelector('table').addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('remove-btn')) {
+                window.location.reload();
+            }
 
-    contactButton.addEventListener("click", function () {
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = "Contact_Page.html"; // Replace with your desired URL
-    });
+        });
 
-    cuttingButton.addEventListener("click", function () {
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = "Cutting_Page.php"; // Replace with your desired URL
     });
-
-    charcuterieButton.addEventListener("click", function () {
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = "Charcuterie_Page.php"; // Replace with your desired URL
-    });
-
-    specialtyButton.addEventListener("click", function () {
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = "Specialty_Page.php"; // Replace with your desired URL
-    });
-
-    buyButton.addEventListener("click", function () {
-        //localStorage.clear();
-        sessionStorage.setItem("price", buyButton.title);
-        // Change the URL to the Charcuterie page when the Charcuterie button is clicked
-        window.location.href = buyButton.href; // Replace with your desired URL
-    });
-
-    // Add the rest of the button functions when those pages are finished
 
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const clickableImages = document.querySelectorAll(".clickable-image");
