@@ -19,6 +19,34 @@ if (!$results) {
     die("Query failed: " . mysqli_error($dbconnection));
 }
 
+function isInCart($itemId) {
+    return isset($_SESSION['cart']) && in_array($itemId, $_SESSION['cart']);
+}
+
+function addToCart($itemId) {
+    $_SESSION['cart'][] = $itemId;
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_to_cart'])) {
+    $selectedId = $_POST['selected_id'];
+    addToCart($selectedId);
+    header("Location: Charcuterie_Page.php");
+    exit();
+}
+
+function setCookieValue($name, $value, $expiry = 0) {
+    setcookie($name, $value, $expiry, "/");
+}
+
+function getCookieValue($name) {
+    return isset($_COOKIE[$name]) ? $_COOKIE[$name] : null;
+}
+
+$cartCookie = getCookieValue('cart');
+if ($cartCookie !== null) {
+    $_SESSION['cart'] = json_decode($cartCookie, true);
+}
+
 ?>
 
 <html>
@@ -55,6 +83,7 @@ if (!$results) {
                 <a href="Custom_Page.html">Custom</a>
                 <a href="Contact_Page.html">Contact</a>
                 <a href="Gallery_Page.php">Gallery</a>
+                <a href="Buy_Page.php">View Cart</a>
             </div>
         </div>
     </div>
@@ -69,6 +98,7 @@ if (!$results) {
                         <th>Width</th>
                         <th>Wood Type</th>
                         <th>Price</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,9 +117,12 @@ if (!$results) {
                                 <?php echo $row['wood_type']; ?>
                             </td>
                             <td>
-                                <?php echo '<form action="save_item_id.php" method="post">'; 
+                                <?php echo "$",$row['price']; ?>
+                            </td>
+                            <td>
+                                <?php echo '<form action="" method="post">'; 
                                 echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
-                                echo '<button type="submit" class="buy-btn">Buy</button>'; 
+                                echo '<button type="submit" name="add_to_cart" class="buy-btn">Add to Cart</button>'; 
                                 echo '</form>'; ?>
                             </td>
                         </tr>
