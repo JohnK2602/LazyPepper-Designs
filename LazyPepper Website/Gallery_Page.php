@@ -55,6 +55,7 @@ if (!$results) {
                 <a href="Custom_Page.html">Custom</a>
                 <a href="Contact_Page.html">Contact</a>
                 <a href="Gallery_Page.php" class="active">Gallery</a>
+                <a href="Buy_Page.php">View Cart</a>
             </div>
         </div>
     </div>

@@ -14,10 +14,17 @@ function addToCart($itemId) {
     $_SESSION['cart'][] = $itemId;
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_to_cart'])) {
+function removeFromCart($itemId) {
+    $index = array_search($itemId, $_SESSION['cart']);
+    if ($index !== false) {
+        array_splice($_SESSION['cart'], $index, 1);
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['remove_from_cart'])) {
     $selectedId = $_POST['selected_id'];
-    addToCart($selectedId);
-    header("Location: Cutting_Page.php");
+    removeFromCart($selectedId);
+    header("Location: Buy_Page.php");
     exit();
 }
 
@@ -79,7 +86,7 @@ if ($cartCookie !== null) {
         <h2>Shopping Cart</h2>
         <?php
         if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-            echo '<ul>';
+            echo '<tr>';
             $totalPrice = 0;
             foreach ($_SESSION['cart'] as $itemId) {
                 $sql = "SELECT inventory.item_img, inventory.price
@@ -96,16 +103,25 @@ if ($cartCookie !== null) {
                 if (!$results) {
                     die("Query failed: " . mysqli_error($dbconnection));
                 }
-                echo '<li>';
+                echo '<td>';
                 echo "<img src='$imageName' alt='Image' id='image' style='max-width: auto; max-height: 200px;'>";
-                echo "      $",$item['price'];
-                echo '</li>';
+                echo '</td>';
+
+                echo '<td>';
+                echo "$",$item['price'];
+                echo '</td>';
+
+                echo '<td>';
+                echo '<form action="" method="post">'; 
+                echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
+                echo '<button type="submit" name="remove_from_cart" class="remove-btn">Remove from Cart</button>'; 
+                echo '</form>';
+                echo '</td>';
 
                 $totalPrice = $item['price'] + $totalPrice;
             }
-            echo "";
             echo "Total Price: $",$totalPrice;
-            echo '</ul>';
+            echo '</tr>';
         } else {
             echo '<p>Your cart is empty.</p>';
         }

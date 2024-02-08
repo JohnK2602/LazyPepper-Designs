@@ -34,6 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_to_cart'])) {
     exit();
 }
 
+function removeFromCart($itemId) {
+    $index = array_search($itemId, $_SESSION['cart']);
+    if ($index !== false) {
+        array_splice($_SESSION['cart'], $index, 1);
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['remove_from_cart'])) {
+    $selectedId = $_POST['selected_id'];
+    removeFromCart($selectedId);
+    header("Location: Specialty_Page.php");
+    exit();
+}
+
 function setCookieValue($name, $value, $expiry = 0) {
     setcookie($name, $value, $expiry, "/");
 }
@@ -120,10 +134,19 @@ if ($cartCookie !== null) {
                                 <?php echo "$",$row['price']; ?>
                             </td>
                             <td>
-                                <?php echo '<form action="" method="post">'; 
-                                echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
-                                echo '<button type="submit" name="add_to_cart" class="buy-btn">Add to Cart</button>'; 
-                                echo '</form>'; ?>
+                                <?php 
+                                if (isInCart($row['item_id'])) {
+                                    echo '<form action="" method="post">'; 
+                                    echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                    echo '<button type="submit" name="remove_from_cart" class="remove-btn">Remove from Cart</button>'; 
+                                    echo '</form>';
+                                }
+                                else {
+                                    echo '<form action="" method="post">'; 
+                                    echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                    echo '<button type="submit" name="add_to_cart" class="buy-btn">Add to Cart</button>'; 
+                                    echo '</form>'; 
+                                } ?>
                             </td>
                         </tr>
                     <?php } ?>

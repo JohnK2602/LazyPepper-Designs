@@ -22,6 +22,7 @@
     top: 115px;
     bottom: 0;
     left: 0;
+    overflow-y: auto;
 }
 
 /* Style the links */
@@ -132,6 +133,32 @@ th {
 .buy-btn:hover {
     background-color: #d3d3d3;
     cursor: pointer;
+}
+
+.remove-btn {
+    background-color: #ff0000a8;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    color: black;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 10px;
+    /* Add line-height to center text vertically */
+    line-height: 26px;
+    /* Adjust the value according to the button height */
+}
+
+.remove-btn:hover {
+    background-color: #d3d3d3;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
 }
 
 /* Other Desktop CSS goes here */
