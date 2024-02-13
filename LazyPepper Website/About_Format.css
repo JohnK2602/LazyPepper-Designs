@@ -1,48 +1,49 @@
 /* Style for the header logo image */
 .header-logo {
-    max-width: 220px;
-    /* Adjust the width of the image */
-    height: auto;
-    /* Maintain the aspect ratio */
-    position: fixed;
-    /* Absolute positioning for proper placement */
-    top: 0px;
-    /* Adjust the top position as needed */
-    left: 0px;
-    /* Adjust the left position as needed */
+    max-width: 170px;
+
+}
+
+.b-bottom {
+    border-bottom: 2px red solid;
+    margin-bottom: 100px;
 }
 
 /* Updated styles for the red column */
-.red-column {
+.navbar-nav {
     font-family: Arial, Helvetica, sans-serif;
     width: 190px;
-    background-color: white;
-    padding: 15px;
-    position: fixed;
-    top: 115px;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;
 }
 
-/* Style the links */
-.red-column a {
-    display: block;
-    padding: 10px;
-    padding-bottom: 10px;
-    text-decoration: none;
-    color: red;
-    /* Change if you use a different red*/
-    border: 2px solid red;
-    margin: 10px 0;
-    text-align: center;
-    border-radius: 5px;
+.nav-link {
+    font-size: x-large;
+    font-weight: 500;
 }
 
-.red-column a.active {
+.active {
+    border-bottom: 3px solid red;
+    padding-bottom: 1px;
+}
+
+.hov::after {
+    content: "";
+    height: 2px;
+    width: 0%;
     background-color: red;
-    color: white;
+    display: block;
+    transition: all 0.2s ease-in-out;
 }
+
+.hov:hover::after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: red;
+    display: block;
+}
+
+
+
 
 /* Style the hamburger button */
 .hamburger {
@@ -70,7 +71,8 @@
 .main-container {
     margin-top: 10px;
     /* Ensure content starts below the fixed header and column */
-    padding-left: 200px;
+    padding-left: 220px;
+    padding-right: 220px;
     /* Adjust to match the width of the red column */
     background-color: #f0f0f0;
     /* Background color for the text box */
@@ -82,7 +84,7 @@
 /* Styles for the scrollable content */
 .content {
     /* Add your content styles here */
-    padding: 20px;
+    margin: 20px;
     /* Add padding or other styles as needed */
 }
 
