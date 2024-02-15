@@ -43,10 +43,15 @@ if ($cartCookie !== null) {
 
 ?>
 
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="About_Format.css">
     <link rel="stylesheet" href="Buy_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
@@ -54,78 +59,123 @@ if ($cartCookie !== null) {
 
 <body>
 
-    <div class="red-column" id="fullMenu">
-        <div id="inner-nav">
+    <nav class="navbar navbar-expand-lg navbar-light b-bottom">
+        <div class="container-fluid">
             <header id="header-logo" class="header-logo">
                 <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
             </header>
-            <button id="hamburger-button" class="hamburger">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div id="menu">
-
-                <!-- Change class="" to the currentlly opened page-->
-                <a href="About_Page.html">About</a>
-                <a href="Charcuterie_Page.php">Charcuterie</a>
-                <a href="Cutting_Page.php">Cutting</a>
-                <a href="Specialty_Page.php">Specialty</a>
-                <a href="Custom_Page.html">Custom</a>
-                <a href="Contact_Page.html">Contact</a>
-                <a href="Gallery_Page.php">Gallery</a>
-                <a href="Buy_Page.php" class="active">View Cart</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ps-3 ">
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="About_Page.html">About</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Charcuterie_Page.php">Charcuterie</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Cutting_Page.php">Cutting</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Specialty_Page.php" tabindex="-1" aria-disabled="true">Specialty</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Custom_Page.html" tabindex="-1" aria-disabled="true">Custom</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov " href="Contact_Page.html" tabindex="-1" aria-disabled="true">Contact</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Gallery_Page.php" tabindex="-1" aria-disabled="true">Gallery</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link active" aria-current="page" href="Buy_Page.php" tabindex="-1" aria-disabled="true">Cart</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
 
-        <h2>Shopping Cart</h2>
-        <?php
-        if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-            echo '<tr>';
-            $totalPrice = 0;
-            foreach ($_SESSION['cart'] as $itemId) {
-                $sql = "SELECT inventory.item_img, inventory.price
-                        FROM inventory
-                        WHERE inventory.item_id = ".$itemId.";";
+            <?php if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                $totalPrice = 0;
+                foreach ($_SESSION['cart'] as $itemId) {
+                    $sql = "SELECT inventory.item_img, inventory.price, inventory.item_type, inventory.length, inventory.width, inventory.height, inventory.wood_type
+                            FROM inventory
+                            WHERE inventory.item_id = ".$itemId.";";
 
-                // Execute the SQL query and store the results
-                $results = mysqli_query($dbconnection, $sql);
+                    // Execute the SQL query and store the results
+                    $results = mysqli_query($dbconnection, $sql);
 
-                $item = mysqli_fetch_assoc($results);
-                $imageName = $item['item_img']; 
+                    $item = mysqli_fetch_assoc($results);
+                    $imageName = $item['item_img']; 
 
-                // If the query fails, display the error message
-                if (!$results) {
-                    die("Query failed: " . mysqli_error($dbconnection));
-                }
-                echo '<td>';
-                echo "<img src='$imageName' alt='Image' id='image' style='max-width: auto; max-height: 200px;'>";
-                echo '</td>';
+                    // If the query fails, display the error message
+                    if (!$results) {
+                        die("Query failed: " . mysqli_error($dbconnection));
+                    } ?>
 
-                echo '<td>';
-                echo "$",$item['price'];
-                echo '</td>';
+                    <div class="card-group shadow-lg mb-5">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <?php echo "<img src='$imageName' class='card-img-top' alt='...' style='max-width: 400px; '>"; ?>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body align-content-center text-align-start">
+                                <h2>
+                                    <?php echo "Type: ",ucfirst($item['item_type']); ?>
+                                </h2>
+                                <p>
+                                <?php echo "Length: ",$item['length'],"in."; ?>
+                                <br>
+                                <?php echo "Width: ",$item['width'],"in."; ?>
+                                <br>
+                                <?php echo "Height: ",$item['height'],"in.";?>
+                                <br>
+                                <?php echo "Wood Type: ",$item['wood_type']; ?>
+                            </p>
+                                <h1>
+                                    <?php echo "$",$item['price']; ?>
+                                </h1>
+                                <div>
+                                    <?php 
+                                        if (isInCart($itemId)) {
+                                            echo '<form action="" method="post">'; 
+                                            echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
+                                            echo '<button type="submit" name="remove_from_cart" class="remove-btn">Remove from Cart</button>'; 
+                                            echo '</form>';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                echo '<td>';
+                <?php $totalPrice = $item['price'] + $totalPrice; } ?>
+                <!-- Put all other information Here!!! -->
+            <?php 
                 echo '<form action="" method="post">'; 
                 echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
-                echo '<button type="submit" name="remove_from_cart" class="remove-btn">Remove from Cart</button>'; 
+                echo '<button type="submit" name="buy_items" class="purchase-btn">Total Price: $'. $totalPrice .'</button>'; 
                 echo '</form>';
-                echo '</td>';
+                } 
 
-                $totalPrice = $item['price'] + $totalPrice;
-            }
-            echo "Total Price: $",$totalPrice;
-            echo '</tr>';
-        } else {
-            echo '<p>Your cart is empty.</p>';
-        }
-        ?>
+                else {
+                    echo "There are no items in your cart!";
+                }
+            ?>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
 
     <script>
         const currentCart = <?php echo json_encode($SESSION['cart'] ?? []); ?>;

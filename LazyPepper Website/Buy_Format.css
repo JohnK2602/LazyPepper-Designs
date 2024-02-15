@@ -40,6 +40,27 @@
     }
 }
 
+.purchase-btn {
+    background-color: #0ac500;
+    padding: 10px;
+    padding-left: 250px;
+    padding-right: 250px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+        background: #7cf575;
+        transition: all .4s ease-in-out;
+    }
+}
+
 .add {
     width: 67%;
 }

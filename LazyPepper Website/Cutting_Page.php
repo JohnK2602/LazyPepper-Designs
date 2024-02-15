@@ -7,7 +7,7 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_id, inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price, inventory.item_type
             FROM inventory
             WHERE inventory.item_type = 'cutting'";
 
@@ -131,7 +131,9 @@ if ($cartCookie !== null) {
                     </div>
                     <div class="card">
                         <div class="card-body align-content-center text-align-start">
-                            <h2>Details</h2>
+                            <h2>
+                                <?php echo ucfirst($row['item_type']); ?>
+                            </h2>
                             <p>
                                 <?php echo "Length: ",$row['length'],"in."; ?>
                                 <br>
