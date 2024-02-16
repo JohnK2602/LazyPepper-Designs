@@ -157,13 +157,15 @@ if ($cartCookie !== null) {
                         </div>
                     </div>
 
-                <?php $totalPrice = $item['price'] + $totalPrice; } ?>
-                <!-- Put all other information Here!!! -->
-            <?php 
-                echo '<form action="" method="post">'; 
-                echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
-                echo '<button type="submit" name="buy_items" class="purchase-btn">Total Price: $'. $totalPrice .'</button>'; 
-                echo '</form>';
+                    <?php $totalPrice = $item['price'] + $totalPrice; }
+
+                echo "<div class='d-grid gap-2 col-6 mx-auto'>";
+                echo "<button class='btn btn-primary' type='button'>Total Price: $". $totalPrice ."</button>";
+                echo "</div>";
+                // echo '<form action="" method="post">'; 
+                // echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
+                // echo '<button type="submit" name="buy_items" class="purchase-btn">Total Price: $'. $totalPrice .'</button>'; 
+                // echo '</form>';
                 } 
 
                 else {
