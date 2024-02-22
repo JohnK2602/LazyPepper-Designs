@@ -7,9 +7,9 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_id, inventory.item_img, inventory.item_type, inventory.length, inventory.width, inventory.wood_type, inventory.price
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.gallery_desc
             FROM inventory
-            WHERE inventory.item_type = 'cutting'";
+            WHERE inventory.gallery_item = 1";
 
 // Execute the SQL query and store the results
 $results = mysqli_query($dbconnection, $sql);
@@ -55,13 +55,13 @@ if (!$results) {
                         <a class="nav-link hov" href="View_Charcuterie.php">Charcuterie</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="View_Cutting.php">Cutting</a>
+                        <a class="nav-link hov" href="View_Cutting.php">Cutting</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link hov" href="View_Specialty.php" tabindex="-1" aria-disabled="true">Specialty</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
+                        <a class="nav-link active" aria-current="page" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
                     </li>
                 </ul>
             </div>
@@ -79,19 +79,9 @@ if (!$results) {
                     </div>
                     <div class="card">
                         <div class="card-body align-content-center text-align-start">
-                            <h2>
-                                <?php echo ucfirst($row['item_type']); ?>
-                            </h2>
                             <p>
-                                <?php echo "Length: ",$row['length'],"in."; ?>
-                                <br>
-                                <?php echo "Height: ",$row['width'],"in."; ?>
-                                <br>
-                                <?php echo "Wood Type: ",$row['wood_type']; ?>
+                                <?php echo $row['gallery_desc']; ?>
                             </p>
-                            <h1>
-                                <?php echo "$",$row['price']; ?>
-                            </h1>
                             <div>
                                 <?php
                                     echo '<form action="remove_item_id.php" method="post">'; 
