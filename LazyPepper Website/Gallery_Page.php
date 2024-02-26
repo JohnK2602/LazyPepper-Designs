@@ -7,7 +7,7 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_img, inventory.gallery_desc
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.gallery_desc
             FROM inventory
             WHERE inventory.gallery_item = 1";
 
@@ -79,37 +79,27 @@ if (!$results) {
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-            <div class="carousel slide" id="galleryCarousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="About_Page_Banner.jpg" class='d-block w-100'>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>
-                                Pig Pickin' 2022
-                            </h5>
-                        </div>
+            <div class="row">
+                <div class="col-4">
+                    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+                        <?php while ($row = mysqli_fetch_assoc($results)) {
+                            $imageName = $row['item_img'];
+                            $itemID = $row['item_id']; ?>
+                            <?php echo "<img src='$imageName' class='list-group-item list-group-item-action' href='#$itemID'>"; ?>
+                        <?php } ?>
                     </div>
-                    <?php while ($row = mysqli_fetch_assoc($results)) { ?>
-                    <div class="carousel-item">
-                        <img <?php $imageName = $row['item_img']; echo "<img src='$imageName' class='d-block w-100 h-100'"; ?>>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>
-                                <?php echo $row['gallery_desc']; ?>
-                            </h5>
-                        </div>
-                    </div>
-                    <?php } ?>
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                <div class="col-8">
+                    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                        <?php while ($row = mysqli_fetch_assoc($results)) {
+                            $itemDesc = $row['item_desc'];
+                            $itemID = $row['item_id']; ?>
+                            <?php echo "<h4 id='$itemID'>$itemDesc</h4>"; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>    
+        
             <!-- Put all other information Here!!! -->
         </div>
     </div>
