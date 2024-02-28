@@ -159,6 +159,32 @@ if ($cartCookie !== null) {
 
                     <?php $totalPrice = $item['price'] + $totalPrice; }
 
+                
+                $totalPrice = number_format($totalPrice, 2, ".", "");
+                $shipping = number_format(5, 2, ".", "");
+                $tax = number_format($totalPrice * 0.06, 2, ".", "");
+                
+                echo "<div class='d-grid gap-2 col-6 mx-auto'>";
+
+                echo "<div class='d-flex mb-3'>";
+                echo "<div class='p-2'>Price:</div>";
+                echo "<div class='ms-auto p-2'>$$totalPrice</div>";
+                echo "</div>";
+                
+                echo "<div class='d-flex mb-3'>";
+                echo "<div class='p-2'>Shipping:</div>";
+                echo "<div class='ms-auto p-2'>$$shipping</div>";
+                echo "</div>";
+                
+                echo "<div class='d-flex mb-3'>";
+                echo "<div class='p-2'>Tax:</div>";
+                echo "<div class='ms-auto p-2'>$$tax</div>";
+                echo "</div>";
+                
+                echo "</div>";
+
+                $totalPrice = number_format($totalPrice + $tax + $shipping, 2, ".", "");
+
                 echo "<div class='d-grid gap-2 col-6 mx-auto'>";
                 echo "<button class='btn btn-primary' type='button'>Total Price: $". $totalPrice ."</button>";
                 echo "</div>";
