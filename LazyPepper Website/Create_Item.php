@@ -56,7 +56,7 @@ include("dbconnection.php");
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-            <form action="Table_Insert.php" method="POST" class="row g-3">
+            <form action="Table_Insert.php" method="POST" enctype="multipart/form-data" class="row g-3">
                 <div class="col-md-6">
                     Gallery Item: <select name="gallery_item"> 
                         <option value=1> Yes</option>

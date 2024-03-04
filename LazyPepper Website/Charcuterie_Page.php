@@ -126,7 +126,7 @@ if ($cartCookie !== null) {
                 <div class="card-group shadow-lg mb-5">
                     <div class="card">
                         <div class="card-body text-center">
-                            <?php $imageName = $row['item_img']; echo "<img src='$imageName' class='card-img-top' alt='...' style='max-width: 400px; '>"; ?>
+                            <img src="data:image/jpg;charset=utf8;base64, <?php echo base64_encode($row['item_img']); ?>" class='card-img-top' alt='...' style='max-width: 400px' />
                         </div>
                     </div>
                     <div class="card">
