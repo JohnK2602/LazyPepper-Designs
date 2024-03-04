@@ -7,7 +7,7 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_img, inventory.gallery_desc
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.gallery_desc
             FROM inventory
             WHERE inventory.gallery_item = 1";
 
@@ -27,63 +27,90 @@ if (!$results) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
-    <link rel="stylesheet" href="Gallery_Format.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="About_Format.css">
+    <link rel="stylesheet" href="Buy_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
 </head>
 
 <body>
 
-    <div class="red-column" id="fullMenu">
-        <div id="inner-nav">
+    <nav class="navbar navbar-expand-lg navbar-light b-bottom">
+        <div class="container-fluid">
             <header id="header-logo" class="header-logo">
                 <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
             </header>
-            <button id="hamburger-button" class="hamburger">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div id="menu">
-
-                <!-- Change class="" to the currentlly opened page-->
-                <a href="About_Page.html">About</a>
-                <a href="Charcuterie_Page.php">Charcuterie</a>
-                <a href="Cutting_Page.php">Cutting</a>
-                <a href="Specialty_Page.php">Specialty</a>
-                <a href="Custom_Page.html">Custom</a>
-                <a href="Contact_Page.html">Contact</a>
-                <a href="Gallery_Page.php" class="active">Gallery</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ps-3 ">
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="About_Page.html">About</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Charcuterie_Page.php">Charcuterie</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Cutting_Page.php">Cutting</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Specialty_Page.php" tabindex="-1" aria-disabled="true">Specialty</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Custom_Page.html" tabindex="-1" aria-disabled="true">Custom</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov " href="Contact_Page.html" tabindex="-1" aria-disabled="true">Contact</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link active" aria-current="page" href="Gallery_Page.php" tabindex="-1" aria-disabled="true">Gallery</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Buy_Page.php" tabindex="-1" aria-disabled="true">Cart</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-            <table>
-                <!--<thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>-->
-                <tbody>
-                    <?php while ($row = mysqli_fetch_assoc($results)) { ?>
-                        <tr>
-                            <td>
-                                <?php $imageName = $row['item_img']; echo "<img src='$imageName' alt='Image' id='image' style='max-width: 300px; max-height: auto;'>"; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['gallery_desc']; ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-4">
+                    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
+                        <?php while ($row = mysqli_fetch_assoc($results)) {
+                            $imageName = $row['item_img'];
+                            $itemID = $row['item_id']; ?>
+                            <?php echo "<img src='$imageName' class='list-group-item list-group-item-action' href='#$itemID'>"; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                        <?php while ($row = mysqli_fetch_assoc($results)) {
+                            $itemDesc = $row['item_desc'];
+                            $itemID = $row['item_id']; ?>
+                            <?php echo "<h4 id='$itemID'>$itemDesc</h4>"; ?>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>    
+        
             <!-- Put all other information Here!!! -->
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+    <script>
+        const currentCart = <?php echo json_encode($SESSION['cart'] ?? []); ?>;
+    </script>
 </body>
 
 </html>

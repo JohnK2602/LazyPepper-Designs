@@ -1,13 +1,27 @@
 <?php
+
 // Start a session
 session_start();
 
 // Include database connection file
 include("dbconnection.php");
+
+// Select data from tables animal and owner
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.gallery_desc
+            FROM inventory
+            WHERE inventory.gallery_item = 1";
+
+// Execute the SQL query and store the results
+$results = mysqli_query($dbconnection, $sql);
+
+// If the query fails, display the error message
+if (!$results) {
+    die("Query failed: " . mysqli_error($dbconnection));
+}
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -35,7 +49,7 @@ include("dbconnection.php");
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ps-3 ">
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="Create_Item.php">Create</a>
+                        <a class="nav-link hov" href="Create_Item.php">Create</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link hov" href="View_Charcuterie.php">Charcuterie</a>
@@ -47,7 +61,7 @@ include("dbconnection.php");
                         <a class="nav-link hov" href="View_Specialty.php" tabindex="-1" aria-disabled="true">Specialty</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
+                        <a class="nav-link active" aria-current="page" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
                     </li>
                 </ul>
             </div>
@@ -56,46 +70,31 @@ include("dbconnection.php");
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-            <form action="Table_Insert.php" method="POST" class="row g-3">
-                <div class="col-md-6">
-                    Gallery Item: <select name="gallery_item"> 
-                        <option value=1> Yes</option>
-                        <option value=0> No</option></select>
-                </div>
-                <div class="col-12">
-                    Gallery Description: <input class="form-control" id="exampleFormControlTextarea1" rows="3" type="text" name="gallery_desc" value="N/A">
-                </div>
-                <div class="col-12">
-                    Image: <input class="form-control" type="file" id="formFile" name="item_img"><br>
-                </div>
-                <div class="col-12">
-                    Item Type: <select name="item_type"> 
-                        <option value="none"> None</option>
-                        <option value="cutting"> Cutting</option>
-                        <option value="charcuterie"> Charcuterie</option>
-                        <option value="specialty"> Specialty</option></select><br>
-                </div>
-                <div class="col-sm">
-                    Height (inches): <input type="number" name="height" value=0><br>
-                </div>
-                <div class="col-sm">
-                    Length (inches): <input type="number" name="length" value=0><br>
-                </div> 
-                <div class="col-sm">
-                    Width (inches): <input type="number" name="width" value=0><br>
-                </div>
-                <div class="col-sm">
-                    Wood: <input type="text" name="wood_type" value="N/A"><br>
-                </div>
-                <div class="col-sm">
-                    Price: <input type="number" name="price" value=0><br>
-                </div>
-                <div class="col-12">
-                    <input type="submit" name="submit">
+            <?php while ($row = mysqli_fetch_assoc($results)) { ?>
+                <div class="card-group shadow-lg mb-5">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <?php $imageName = $row['item_img']; echo "<img src='$imageName' class='card-img-top' alt='...' style='max-width: 400px; '>"; ?>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body align-content-center text-align-start">
+                            <p>
+                                <?php echo $row['gallery_desc']; ?>
+                            </p>
+                            <div>
+                                <?php
+                                    echo '<form action="remove_item_id.php" method="post">'; 
+                                    echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                    echo '<button type="submit" class="remove-btn">Remove</button>'; 
+                                    echo '</form>'; 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-            </form>
-
+            <?php } ?>
             <!-- Put all other information Here!!! -->
         </div>
     </div>

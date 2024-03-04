@@ -1,0 +1,17 @@
+item_id,gallery_desc,gallery_item,height,item_img,item_type,length,price,width,wood_type
+24,"This is filler text for the Gallery Page!",1,1,Char_1.jpg,charcuterie,12,25,5,Maple
+25,"This is filler text for the Gallery Page!",1,1,Char_2.jpg,charcuterie,16,30,8,Cherry
+26,"This is filler text for the Gallery Page!",1,1,Char_3.jpg,charcuterie,19,30,5,Oak
+27,"This is filler text for the Gallery Page!",1,1,Char_4.jpg,charcuterie,19,75,5,Oak
+28,"This is filler text for the Gallery Page!",1,1,Char_5.jpg,charcuterie,16,35,6,Oak
+30,"This is filler text for the Gallery Page!",1,1,Cutting_1.jpg,cutting,12,30,8,Oak
+31,"This is filler text for the Gallery Page!",1,1,Cutting_2.jpg,cutting,8,25,3,Maple
+33,"This is filler text for the Gallery Page!",1,1,Specialty_1.jpg,specialty,16,45,14,Oak
+34,"This is filler text for the Gallery Page!",1,1,Specialty_2.jpg,specialty,8,15,3,Oak
+36,"This is filler text for the Gallery Page!",1,1,Specialty_3.jpg,specialty,14,30,7,Maple
+37,"This is filler text for the Gallery Page!",1,1,Specialty_4.jpg,specialty,4,15,4,Oak
+38,"This is filler text for the Gallery Page!",1,9,Specialty_5.jpg,specialty,3,15,3,Oak
+39,"This is filler text for the Gallery Page!",1,1,Specialty_6.jpg,specialty,12,30,5,Cherry
+40,"This is filler text for the Gallery Page!",1,2,Specialty_7.jpg,specialty,24,45,24,Oak
+41,"This is filler text for the Gallery Page!",1,8,Specialty_8.jpg,specialty,5,15,1,Oak
+42,"This is filler text for the Gallery Page!",1,1,Specialty_9.jpg,specialty,16,35,16,Maple

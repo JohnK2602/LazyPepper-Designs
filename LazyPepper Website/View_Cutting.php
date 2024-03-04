@@ -7,9 +7,9 @@ session_start();
 include("dbconnection.php");
 
 // Select data from tables animal and owner
-$sql = "SELECT inventory.item_id, inventory.item_img, inventory.length, inventory.width, inventory.wood_type, inventory.price, inventory.item_type
+$sql = "SELECT inventory.item_id, inventory.item_img, inventory.item_type, inventory.length, inventory.width, inventory.wood_type, inventory.price
             FROM inventory
-            WHERE inventory.item_type = 'charcuterie'";
+            WHERE inventory.item_type = 'cutting'";
 
 // Execute the SQL query and store the results
 $results = mysqli_query($dbconnection, $sql);
@@ -17,48 +17,6 @@ $results = mysqli_query($dbconnection, $sql);
 // If the query fails, display the error message
 if (!$results) {
     die("Query failed: " . mysqli_error($dbconnection));
-}
-
-function isInCart($itemId) {
-    return isset($_SESSION['cart']) && in_array($itemId, $_SESSION['cart']);
-}
-
-function addToCart($itemId) {
-    $_SESSION['cart'][] = $itemId;
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_to_cart'])) {
-    $selectedId = $_POST['selected_id'];
-    addToCart($selectedId);
-    header("Location: Charcuterie_Page.php");
-    exit();
-}
-
-function removeFromCart($itemId) {
-    $index = array_search($itemId, $_SESSION['cart']);
-    if ($index !== false) {
-        array_splice($_SESSION['cart'], $index, 1);
-    }
-}
-
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['remove_from_cart'])) {
-    $selectedId = $_POST['selected_id'];
-    removeFromCart($selectedId);
-    header("Location: Charcuterie_Page.php");
-    exit();
-}
-
-function setCookieValue($name, $value, $expiry = 0) {
-    setcookie($name, $value, $expiry, "/");
-}
-
-function getCookieValue($name) {
-    return isset($_COOKIE[$name]) ? $_COOKIE[$name] : null;
-}
-
-$cartCookie = getCookieValue('cart');
-if ($cartCookie !== null) {
-    $_SESSION['cart'] = json_decode($cartCookie, true);
 }
 
 ?>
@@ -91,28 +49,19 @@ if ($cartCookie !== null) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ps-3 ">
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="About_Page.html">About</a>
+                        <a class="nav-link hov" href="Create_Item.php">Create</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link active" aria-current="page" href="Charcuterie_Page.php">Charcuterie</a>
+                        <a class="nav-link hov" href="View_Charcuterie.php">Charcuterie</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Cutting_Page.php">Cutting</a>
+                        <a class="nav-link active" aria-current="page" href="View_Cutting.php">Cutting</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Specialty_Page.php" tabindex="-1" aria-disabled="true">Specialty</a>
+                        <a class="nav-link hov" href="View_Specialty.php" tabindex="-1" aria-disabled="true">Specialty</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Custom_Page.html" tabindex="-1" aria-disabled="true">Custom</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link hov " href="Contact_Page.html" tabindex="-1" aria-disabled="true">Contact</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Gallery_Page.php" tabindex="-1" aria-disabled="true">Gallery</a>
-                    </li>
-                    <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Buy_Page.php" tabindex="-1" aria-disabled="true">Cart</a>
+                        <a class="nav-link hov" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
                     </li>
                 </ul>
             </div>
@@ -121,7 +70,6 @@ if ($cartCookie !== null) {
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-
             <?php while ($row = mysqli_fetch_assoc($results)) { ?>
                 <div class="card-group shadow-lg mb-5">
                     <div class="card">
@@ -132,7 +80,7 @@ if ($cartCookie !== null) {
                     <div class="card">
                         <div class="card-body align-content-center text-align-start">
                             <h2>
-                            <?php echo ucfirst($row['item_type']); ?>
+                                <?php echo ucfirst($row['item_type']); ?>
                             </h2>
                             <p>
                                 <?php echo "Length: ",$row['length'],"in."; ?>
@@ -145,19 +93,11 @@ if ($cartCookie !== null) {
                                 <?php echo "$",$row['price']; ?>
                             </h1>
                             <div>
-                                <?php 
-                                    if (isInCart($row['item_id'])) {
-                                        echo '<form action="" method="post">'; 
-                                        echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
-                                        echo '<button type="submit" name="remove_from_cart" class="remove-btn">Remove from Cart</button>'; 
-                                        echo '</form>';
-                                    }
-                                    else {
-                                        echo '<form action="" method="post">'; 
-                                        echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
-                                        echo '<button type="submit" name="add_to_cart" class="buy-btn">Add to Cart</button>'; 
-                                        echo '</form>'; 
-                                    } 
+                                <?php
+                                    echo '<form action="remove_item_id.php" method="post">'; 
+                                    echo '<input type="hidden" name="selected_id" value="' . $row['item_id'] . '">';
+                                    echo '<button type="submit" class="remove-btn">Remove</button>'; 
+                                    echo '</form>'; 
                                 ?>
                             </div>
                         </div>
@@ -168,14 +108,9 @@ if ($cartCookie !== null) {
             <!-- Put all other information Here!!! -->
         </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
-    <script>
-        const currentCart = <?php echo json_encode($SESSION['cart'] ?? []); ?>;
-    </script>
 </body>
 
 </html>
