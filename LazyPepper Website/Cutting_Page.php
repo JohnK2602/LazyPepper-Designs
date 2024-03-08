@@ -103,7 +103,7 @@ if ($cartCookie !== null) {
                         <a class="nav-link hov" href="Specialty_Page.php" tabindex="-1" aria-disabled="true">Specialty</a>
                     </li>
                     <li class="nav-item me-4">
-                        <a class="nav-link hov" href="Custom_Page.html" tabindex="-1" aria-disabled="true">Custom</a>
+                        <a class="nav-link hov" href="Custom_Page.php" tabindex="-1" aria-disabled="true">Custom</a>
                     </li>
                     <li class="nav-item me-4">
                         <a class="nav-link hov " href="Contact_Page.html" tabindex="-1" aria-disabled="true">Contact</a>
