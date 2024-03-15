@@ -65,38 +65,38 @@ include("dbconnection.php");
 
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">
-            <form class="row g-3">
+            <form class="row g-3" action="Custom_Email.php">
                 <div class="col-md-6">
-                    <label for="validationDefault01" class="form-label">First name</label>
-                    <input type="text" class="form-control" id="validationDefault01" placeholder="John" required>
+                    <label for="first" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="first" placeholder="John" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationDefault02" class="form-label">Last name</label>
-                    <input type="text" class="form-control" id="validationDefault02" placeholder="Smith" required>
+                    <label for="last" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="last" placeholder="Smith" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationDefaultEmail" class="form-label">Email</label>    
-                    <input type="text" class="form-control" id="validationDefaultEmail" placeholder="john@email.com" required>
+                    <label for="email" class="form-label">Email</label>    
+                    <input type="text" class="form-control" id="email" placeholder="john@email.com" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationDefaultStreet" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="validationDefaultStreet" placeholder="1234 Main St" required>
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationDefault03" class="form-label">City</label>
-                    <input type="text" class="form-control" id="validationDefault03" placeholder="Columbia" required>
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" placeholder="Columbia" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="validationDefault04" class="form-label">State</label>
-                    <input type="text" class="form-control" id="validationDefault04" placeholder="SC" required>
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" placeholder="SC" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="validationDefault05" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="validationDefault05" placeholder="12345" required>
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="zip" placeholder="12345" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Describe Your Order</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                    <label for="order" class="form-label">Describe Your Order</label>
+                    <textarea class="form-control" id="order" rows="3" required></textarea>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary" type="submit">Submit Request</button>

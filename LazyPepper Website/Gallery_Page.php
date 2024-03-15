@@ -78,27 +78,22 @@ if (!$results) {
     </nav>
 
     <div class="main-container" id="mainContainer">
-        <div class="content" id="pageContent">
-            <div class="row">
-                <div class="col-4">
-                    <div id="simple-list-example" class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                        <?php while ($row = mysqli_fetch_assoc($results)) {
-                            $imageName = $row['item_img'];
-                            $itemID = $row['item_id']; ?>
-                            <?php echo "<img src='$imageName' class='list-group-item list-group-item-action' href='#$itemID'>"; ?>
-                        <?php } ?>
+        <div class="content" id="pageContent">  
+
+            <div class="album py-5 bg-body-tertiary">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <?php while ($row = mysqli_fetch_assoc($results)) { ?>
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            <img src="data:image/jpg;charset=utf8;base64, <?php echo base64_encode($row['item_img']); ?>" class='bd-placeholder-img card-img-top' alt='...'  />
+                            <div class="card-body">
+                                <?php echo "<p class='card-text'>",$row['gallery_desc'],"</p>"; ?>
+                            </div>
+                        </div>
                     </div>
+                    <?php } ?>
                 </div>
-                <div class="col-8">
-                    <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                        <?php while ($row = mysqli_fetch_assoc($results)) {
-                            $itemDesc = $row['item_desc'];
-                            $itemID = $row['item_id']; ?>
-                            <?php echo "<h4 id='$itemID'>$itemDesc</h4>"; ?>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>    
+            </div>
         
             <!-- Put all other information Here!!! -->
         </div>

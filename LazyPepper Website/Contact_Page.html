@@ -5,42 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LazyPepper Designs</title>
-    <link rel="stylesheet" href="Contact_Format.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="About_Format.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="LazyPepper_Scripts.js"></script>
 </head>
 
 <body>
 
-    <div class="red-column" id="fullMenu">
-        <div id="inner-nav">
+    <nav class="navbar navbar-expand-lg navbar-light b-bottom">
+        <div class="container-fluid">
             <header id="header-logo" class="header-logo">
                 <img src="LazyPepperLogo.jpg" alt="Logo" class="header-logo">
             </header>
-            <button id="hamburger-button" class="hamburger">
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
-                <div class="hamburger-line"></div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
-
-            <div id="menu">
-
-                <!-- Change class="" to the currentlly opened page-->
-                <a href="About_Page.html">About</a>
-                <a href="Charcuterie_Page.php">Charcuterie</a>
-                <a href="Cutting_Page.php">Cutting</a>
-                <a href="Specialty_Page.php">Specialty</a>
-                <a href="Custom_Page.html">Custom</a>
-                <a href="Contact_Page.html" class="active">Contact</a>
-                <a href="Gallery_Page.php">Gallery</a>
-                <a href="Buy_Page.php">View Cart</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ps-3 ">
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="About_Page.html">About</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Charcuterie_Page.php">Charcuterie</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Cutting_Page.php">Cutting</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Specialty_Page.php" tabindex="-1"
+                            aria-disabled="true">Specialty</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Custom_Page.php" tabindex="-1" aria-disabled="true">Custom</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link active" aria-current="page" href="Contact_Page.html" tabindex="-1"
+                            aria-disabled="true">Contact</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Gallery_Page.php" tabindex="-1" aria-disabled="true">Gallery</a>
+                    </li>
+                    <li class="nav-item me-4">
+                        <a class="nav-link hov" href="Buy_Page.php" tabindex="-1" aria-disabled="true">Cart</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 
     <div class="main-container" id="mainContainer">
-
-
         <div class="content" id="pageContent">
             <div class="image-container">
                 <img src="Contact_Image_1.jpg" alt="Image 1">
@@ -66,6 +82,11 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
