@@ -80,10 +80,10 @@ if (!$results) {
     <div class="main-container" id="mainContainer">
         <div class="content" id="pageContent">  
 
-            <div class="album py-5 bg-body-tertiary">
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="album py-5">
+                <div class="row">
                     <?php while ($row = mysqli_fetch_assoc($results)) { ?>
-                    <div class="col">
+                    <div class="col-2">
                         <div class="card shadow-sm">
                             <img src="data:image/jpg;charset=utf8;base64, <?php echo base64_encode($row['item_img']); ?>" class='bd-placeholder-img card-img-top' alt='...'  />
                             <div class="card-body">
