@@ -1,7 +1,13 @@
 <?php
 
-// Start a session
 session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    // User is not logged in, redirect to the login page
+    header("location: logon_Page.html");
+    exit;
+}
 
 // Include database connection file
 include("dbconnection.php");
@@ -63,6 +69,7 @@ if (!$results) {
                     <li class="nav-item me-4">
                         <a class="nav-link active" aria-current="page" href="View_Gallery.php" tabindex="-1" aria-disabled="true">Gallery</a>
                     </li>
+                    <a href="Logout.php">Logout</a>
                 </ul>
             </div>
         </div>
