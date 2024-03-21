@@ -92,8 +92,8 @@ include("dbconnection.php");
                 <div class="col-sm">
                     Width (inches): <input type="number" name="width" value=0><br>
                 </div>
-                <div class="col-sm">
-                    Wood: <input type="text" name="wood_type" value="N/A"><br>
+                <div class="col-12">
+                    Wood: <input type="text" class="form-control" id="exampleFormControlTextarea1" name="wood_type" rows="3" value="N/A">
                 </div>
                 <div class="col-sm">
                     Price: <input type="number" name="price" value=0><br>

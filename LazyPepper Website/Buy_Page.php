@@ -184,10 +184,13 @@ if ($cartCookie !== null) {
                 echo "</div>";
 
                 $totalPrice = number_format($totalPrice + $tax + $shipping, 2, ".", "");
+                $_SESSION["totalPrice"] = $totalPrice;
 
+                echo '<form action="Billing_Page.php" method="post">';
                 echo "<div class='d-grid gap-2 col-6 mx-auto'>";
-                echo "<button class='btn btn-primary' type='button'>Total Price: $". $totalPrice ."</button>";
+                echo "<button type='submit' name='totalPrice_btn class='btn btn-primary'>Total Price: $". $totalPrice ."</button>";
                 echo "</div>";
+                echo "</form>";
                 // echo '<form action="" method="post">'; 
                 // echo '<input type="hidden" name="selected_id" value="' . $itemId . '">';
                 // echo '<button type="submit" name="buy_items" class="purchase-btn">Total Price: $'. $totalPrice .'</button>'; 
