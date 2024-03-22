@@ -95,7 +95,9 @@ include("dbconnection.php");
                     <input type="text" class="form-control" id="zip" placeholder="12345" required>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary" type="submit"><?php $_SESSION["totalPrice"] ?></button>
+                    <?php 
+                    $totalPrice = $_SESSION["totalPrice"];
+                    echo '<button class="btn btn-primary" type="submit">Total Price: $'. $totalPrice .'</button>'; ?>
                 </div>
             </form>
 
