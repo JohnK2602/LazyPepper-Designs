@@ -17,16 +17,24 @@
 
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
     <main class="form-signin w-100 m-auto">
+        
+        <!-- Display error message if present -->
+        <?php
+            if (isset($_GET["error"]) && $_GET["error"] === "invalid_credentials") {
+                echo '<p style="color: red;">Invalid username or password. Please try again.</p>';
+            }
+        ?>
+
         <form action="Logon_Verify.php" method="POST">
             <img class="mb-4" src="LazyPepperLogo.jpg" alt="" width="200" height="100">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
             <div class="form-floating">
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
                 <label for="email">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="text" class="form-control" id="password" name="password" placeholder="Password" required>
                 <label for="password">Password</label>
             </div>
             <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
